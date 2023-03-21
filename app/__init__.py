@@ -1,16 +1,19 @@
 from flask import Flask, g
-from db import db
+from flask_cors import CORS
+from db import dal
 
 def create_app():
     app = Flask(__name__)
     app.config.from_object('config.DevelopmentConfig')
 
-    from app.routes import main_blueprint
-    app.register_blueprint(main_blueprint)
+    from app.routes import main_bp, projects_bp
+    app.register_blueprint(main_bp)
+    app.register_blueprint(projects_bp)
+    CORS(app)
 
     return app
 
 
 # @app.teardown_appcontext
 def teardown_db(exception=None):
-    db.close()
+    dal.close()
