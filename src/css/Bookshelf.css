@@ -1,0 +1,30 @@
+.bookshelf {
+    width: 100%;
+    padding: 1rem;
+  }
+  
+  .book-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .book-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+  
+  .book-image {
+    max-width: 150px;
+    margin-right: 1rem;
+  }
+  
+  .book-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .book-info p {
+    margin: 0.5rem 0;
+  }
+  

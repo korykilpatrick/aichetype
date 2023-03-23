@@ -6,9 +6,10 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object('config.DevelopmentConfig')
 
-    from app.routes import main_bp, projects_bp
+    from app.routes import main_bp, projects_bp, books_bp
     app.register_blueprint(main_bp)
     app.register_blueprint(projects_bp)
+    app.register_blueprint(books_bp)
     CORS(app)
 
     return app
