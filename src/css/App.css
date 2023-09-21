@@ -7,9 +7,9 @@ body {
 }
 
 .container {
-  max-width: 800px;
+  max-width: 800px; /* modify this to extend page width? */
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0rem;
 }
 
 header {

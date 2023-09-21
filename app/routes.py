@@ -37,9 +37,24 @@ def get_books():
             'title': book.title,
             'author': book.author,
             'rating': book.rating,
-            'published': book.published,
-            'book_link': book.book_link,
+            'publish_date': book.publish_date,
+            'book_url': book.book_url,
         }
-        for book in books
-    ]
+    for book in books]
     return jsonify(book_list)
+
+@projects_bp.route('/api/projects/<string:project_name>', methods=['GET'])
+def get_project(project_name):
+    project = dal.execute('SELECT * FROM projects WHERE name = %s', (project_name,), one_or_none=True)
+    if not project:
+        return jsonify({"error": "Project not found"}), 404
+
+    response = make_response(jsonify({
+        'id': project.id,
+        'name': project.name,
+        'description': project.description,
+        'created_at': project.created_at
+    }))
+    response.headers['Content-Type'] = 'application/json'
+    return response
+

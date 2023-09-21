@@ -64,11 +64,11 @@ def run_prompt():
     
     history = []
     while True:
-        question = input("Ask a question > ")
+        question = input(">>> ")
         answer = on_message(question=question, history=history)
         history.append(f"Human: {question}")
         history.append(f"Bot: {answer}")
-        print(f"Bot: {answer}")
+        cprint(f"Bot: {answer}", 'cyan')
 
 # train()
 run_prompt()

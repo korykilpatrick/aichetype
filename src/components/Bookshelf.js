@@ -12,15 +12,15 @@ const Bookshelf = () => {
 
   return (
     <div className="bookshelf">
-      <h2>Bookshelf</h2>
+      <h2>Koreads</h2>
       <ul className="book-list">
         {books.map((book) => (
           <li key={book.id} className="book-item">
             <img src={book.img_url} alt={book.title} className="book-image" />
             <div className="book-info">
-              <a href={book.book_link} target="_blank"><h3>{book.title}</h3></a>
+              <a href={book.book_url} target="_blank"><h3>{book.title}</h3></a>
               <p>Author: {book.author}</p>
-              <p>Date Published: {book.published}</p>
+              <p>Date Published: {book.publish_date}</p>
               <p>Rating: {book.rating}</p>
             </div>
           </li>

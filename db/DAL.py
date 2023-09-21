@@ -33,7 +33,7 @@ class DAL:
 		else:
 			return [Data(*row) for row in cursor.fetchall()]
 
-	def execute(self, query, params=None):
+	def execute(self, query, params=None, one_or_none=False):
 		if self.connection is not None:
 			try:
 				cursor = self.connection.cursor()
@@ -41,7 +41,7 @@ class DAL:
 					cursor.execute(query, params)
 				else:
 					cursor.execute(query)
-				result = self.get_data(cursor)
+				result = self.get_data(cursor, one_or_none=one_or_none)
 				self.connection.commit()
 				cursor.close()
 				return result
