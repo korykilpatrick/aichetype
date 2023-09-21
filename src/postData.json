@@ -1,0 +1,13 @@
+[
+    {
+      "name": "Penguin Post",
+      "component": "PenguinPost",
+      "tags": ["animals", "nature"]
+    },
+    {
+      "name": "Tech Post",
+      "component": "TechPost",
+      "tags": ["tech", "coding"]
+    }
+]
+  
