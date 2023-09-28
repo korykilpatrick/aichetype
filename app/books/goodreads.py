@@ -6,10 +6,13 @@ from collections import namedtuple
 from db import dal
 import db.utils as db_utils
 
-Book = namedtuple('Book', ['img_url', 'title', 'book_link', 'author', 'author_link', 'num_pages', 'avg_rating', 'num_ratings', 'date_pub', 'rating', 'review', 'date_added', 'date_started', 'date_read'])
+Book = namedtuple('Book', ['img_url', 'img_url_small', 'title', 'book_link', 'author', 'author_link', 'num_pages', 'avg_rating', 'num_ratings', 'date_pub', 'rating', 'review', 'date_added', 'date_started', 'date_read'])
 
 def extract_book_info(row):
-    img_url = row.select_one('td.field.cover img')['src']
+    img_url_small = row.select_one('td.field.cover img')['src']
+    # "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1600097225l/54900051._SY75_.jpg"
+    # https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1600097225i/54900051.jpg
+    img_url = img_url_small.replace('i.gr-assets.com', 'images-na.ssl-images-amazon.com').replace('SY75', '').replace('SX50', '').replace('_', '').replace('..', '.').replace('l/', 'i/')
     title = row.select_one('td.field.title a').text.strip()
     book_link = 'https://www.goodreads.com' + row.select_one('td.field.title a')['href']
     author = row.select_one('td.field.author a').text.strip()
@@ -31,7 +34,7 @@ def extract_book_info(row):
     date_read = None if date_read.lower() == 'not set' else date_read
 
     return Book(
-        img_url, title, book_link, author, author_link, num_pages, avg_rating,
+        img_url, img_url_small, title, book_link, author, author_link, num_pages, avg_rating,
         num_ratings, date_pub, rating, review, date_added, date_started, date_read
     )
 
@@ -40,10 +43,9 @@ def get_books_from_goodreads(profile_url):
     soup = BeautifulSoup(response.text, 'html.parser')
     return [extract_book_info(row) for row in soup.select('tr.bookalike.review')]
 
-for shelf in ['read', 'currently-reading']:
+for shelf in ['currently-reading', 'read']:
     i = 1
     while True:
-        print(i)
         profile_url = f"https://www.goodreads.com/review/list/76731654-kory-kilpatrick?utf8=%E2%9C%93&ref=nav_mybooks&shelf={shelf}&page={i}"
         books = get_books_from_goodreads(profile_url)
         if not books:
@@ -52,4 +54,3 @@ for shelf in ['read', 'currently-reading']:
         print(books[0].title)
         i += 1
 
-# Now you can save 'books' to your database

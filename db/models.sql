@@ -13,6 +13,7 @@ create table projects (
 create table books (
     id serial primary key,
     img_url varchar(255),
+    img_url_small varchar(255),
     title varchar(255) not null,
     book_link varchar(255),
     author varchar(255) not null,
