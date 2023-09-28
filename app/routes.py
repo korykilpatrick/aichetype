@@ -32,13 +32,13 @@ def get_books():
     book_list = [
         {
             'id': book.id,
-            'create_date': book.create_date.isoformat(),
+            'created_at': book.created_at.isoformat(),
             'img_url': book.img_url,
             'title': book.title,
             'author': book.author,
             'rating': book.rating,
-            'publish_date': book.publish_date,
-            'book_url': book.book_url,
+            'date_pub': book.date_pub,
+            'book_link': book.book_link,
         }
     for book in books]
     return jsonify(book_list)
