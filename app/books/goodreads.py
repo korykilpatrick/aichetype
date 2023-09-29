@@ -4,14 +4,13 @@ from bs4 import BeautifulSoup
 from collections import namedtuple
 
 from db import dal
+from db.models import Book
 import db.utils as db_utils
 
 Book = namedtuple('Book', ['img_url', 'img_url_small', 'title', 'book_link', 'author', 'author_link', 'num_pages', 'avg_rating', 'num_ratings', 'date_pub', 'rating', 'review', 'date_added', 'date_started', 'date_read'])
 
 def extract_book_info(row):
     img_url_small = row.select_one('td.field.cover img')['src']
-    # "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1600097225l/54900051._SY75_.jpg"
-    # https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1600097225i/54900051.jpg
     img_url = img_url_small.replace('i.gr-assets.com', 'images-na.ssl-images-amazon.com').replace('SY75', '').replace('SX50', '').replace('_', '').replace('..', '.').replace('l/', 'i/')
     title = row.select_one('td.field.title a').text.strip()
     book_link = 'https://www.goodreads.com' + row.select_one('td.field.title a')['href']
@@ -24,7 +23,11 @@ def extract_book_info(row):
     num_ratings = int(row.select_one('td.field.num_ratings').text.strip().split()[-1].replace(',', ''))
     date_pub = row.select_one('td.field.date_pub').text.replace('date pub', '').strip() if row.select_one('td.field.date_pub') else None
     rating_element = row.select_one('td.field.rating span.staticStars')
-    rating = int(rating_element['class'][1][1]) if 'p' in rating_element['class'][1] else None
+    if rating_element:
+        stars = rating_element.find_all('span', {'class': 'staticStar p10'})
+        rating = len(stars) if stars else None
+    else:
+        rating = None
     review = row.select_one('td.field.review').text.replace('review', '').strip() if row.select_one('td.field.review') else ''
     review = '' if review.lower() == 'none' else review
     # input(review)
@@ -43,7 +46,8 @@ def get_books_from_goodreads(profile_url):
     soup = BeautifulSoup(response.text, 'html.parser')
     return [extract_book_info(row) for row in soup.select('tr.bookalike.review')]
 
-for shelf in ['currently-reading', 'read']:
+# for shelf in ['currently-reading', 'read']:
+for shelf in ['read']:
     i = 1
     while True:
         profile_url = f"https://www.goodreads.com/review/list/76731654-kory-kilpatrick?utf8=%E2%9C%93&ref=nav_mybooks&shelf={shelf}&page={i}"

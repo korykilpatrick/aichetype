@@ -28,3 +28,10 @@
     margin: 0.5rem 0;
   }
   
+  .star {
+    color: gray;
+  }
+
+  .star.filled {
+    color: gold;
+  }
