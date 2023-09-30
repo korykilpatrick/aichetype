@@ -1,5 +1,6 @@
+drop table if exists books_shelves;
 
--- Models for Postgres database
+drop table if exists projects;
 create table projects (
     id serial primary key,
     name varchar(255) not null,
@@ -8,8 +9,7 @@ create table projects (
     updated_at timestamp not null default now()
 );
 
--- make a sql model based on this python namedtuple: Book = namedtuple('Book', ['img_url', 'title', 'book_link', 'author', 'author_link', 'num_pages', 'avg_rating', 'num_ratings', 'date_pub', 'rating', 'review', 'date_added', 'date_started', 'date_read'])
-
+drop table if exists books;
 create table books (
     id serial primary key,
     img_url varchar(255),
@@ -31,7 +31,7 @@ create table books (
     updated_at timestamp not null default now()
 );
 
--- Create the bookshelves table
+drop table if exists bookshelves;
 CREATE TABLE bookshelves (
     id SERIAL PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
@@ -40,9 +40,8 @@ CREATE TABLE bookshelves (
 
 -- Insert the shelves into the bookshelves table
 INSERT INTO bookshelves (name) VALUES
-('Read'),
-('Currently Reading'),
-('Want to Read'),
+('read'),
+('currently-reading'),
 ('all-time'),
 ('bio-neuro'),
 ('biography'),

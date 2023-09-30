@@ -41,6 +41,7 @@ def get_books():
             'date_added': book.date_added,
             'date_started': book.date_started,
             'date_read': book.date_read,
+            'blurb': book.blurb,
             'rating': book.rating,
             'date_pub': book.date_pub,
             'book_link': book.book_link,
