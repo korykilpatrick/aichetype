@@ -7,8 +7,6 @@ from db import dal
 from db.models import Book
 import db.utils as db_utils
 
-Book = namedtuple('Book', ['img_url', 'img_url_small', 'title', 'book_link', 'author', 'author_link', 'num_pages', 'avg_rating', 'num_ratings', 'date_pub', 'rating', 'review', 'date_added', 'date_started', 'date_read'])
-
 def extract_book_info(row):
     img_url_small = row.select_one('td.field.cover img')['src']
     img_url = img_url_small.replace('i.gr-assets.com', 'images-na.ssl-images-amazon.com').replace('SY75', '').replace('SX50', '').replace('_', '').replace('..', '.').replace('l/', 'i/')
@@ -28,9 +26,8 @@ def extract_book_info(row):
         rating = len(stars) if stars else None
     else:
         rating = None
-    review = row.select_one('td.field.review').text.replace('review', '').strip() if row.select_one('td.field.review') else ''
-    review = '' if review.lower() == 'none' else review
-    # input(review)
+    blurb = row.select_one('td.field.review').text.replace('review', '').strip() if row.select_one('td.field.review') else ''
+    blurb = '' if blurb.lower() == 'none' else blurb
     date_added = row.select_one('td.field.date_added span').text.strip()
     date_started = row.select_one('td.field.date_started span.date_started_value').text.strip() if row.select_one('td.field.date_started span.date_started_value') else None
     date_read = row.select_one('td.field.date_read span').text.strip() if row.select_one('td.field.date_read span') else None
@@ -38,23 +35,48 @@ def extract_book_info(row):
 
     return Book(
         img_url, img_url_small, title, book_link, author, author_link, num_pages, avg_rating,
-        num_ratings, date_pub, rating, review, date_added, date_started, date_read
+        num_ratings, date_pub, rating, blurb, date_added, date_started, date_read
     )
 
-def get_books_from_goodreads(profile_url):
-    response = requests.get(profile_url)
+def get_books_from_goodreads(profile_url, page=1):
+    response = requests.get(f"{profile_url}&page={page}")
     soup = BeautifulSoup(response.text, 'html.parser')
     return [extract_book_info(row) for row in soup.select('tr.bookalike.review')]
 
+def get_books_from_shelves(profile_url, shelf, book_id_lookup, page=1):
+    url = f"{profile_url}&shelf={shelf}&page={page}"
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    book_ids = []
+    for row in soup.select('tr.bookalike.review'):
+        title = row.select_one('td.field.title a').text.strip()
+        input(title)
+        if title in book_id_lookup:
+            book_ids.append(book_id_lookup[title])
+    return book_ids
+
+profile_url = f"https://www.goodreads.com/review/list/76731654-kory-kilpatrick?utf8=%E2%9C%93&ref=nav_mybooks"
 # for shelf in ['currently-reading', 'read']:
-for shelf in ['read']:
+#     i = 1
+#     while True:
+#         books = get_books_from_goodreads(profile_url, page=i)
+#         if not books:
+#             break
+#         db_utils.insert_records(dal, 'books', books, many=True)
+#         print(books[0].title)
+#         i += 1
+    
+
+shelves = dal.execute('select * from bookshelves')
+book_id_lookup = {b.title: b.id for b in dal.execute('select * from books')}
+for shelf in shelves:
+    print(shelf.name)
     i = 1
     while True:
-        profile_url = f"https://www.goodreads.com/review/list/76731654-kory-kilpatrick?utf8=%E2%9C%93&ref=nav_mybooks&shelf={shelf}&page={i}"
-        books = get_books_from_goodreads(profile_url)
+        book_ids = get_books_from_shelves(profile_url, shelf.name, book_id_lookup, page=i)
         if not books:
             break
-        db_utils.insert_records(dal, 'books', books, many=True)
-        print(books[0].title)
+        records = [(id, shelf.id) for id in book_ids]
+        db_utils.insert_records(dal, 'books_shelves', records, many=True)
         i += 1
 

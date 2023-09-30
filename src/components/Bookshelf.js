@@ -3,7 +3,7 @@ import '../css/Bookshelf.css';
 
 const Bookshelf = () => {
   const [books, setBooks] = useState([]);
-  const booksPerRow = 5 // Adjust this number based on how many books you want in a row
+  const booksPerRow = 10 // Adjust this number based on how many books you want in a row
 
   useEffect(() => {
     fetch('/api/books')
