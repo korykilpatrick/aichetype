@@ -40,7 +40,7 @@ const App = () => {
             <Route path="/about" element={<About />} />
           </Routes>
         </Suspense>
-        <ContactInfo />
+        {/* <ContactInfo /> */}
         <footer>
           <p>© {new Date().getFullYear()} Kory Kilpatrick. All rights reserved, motherfucker.</p>
         </footer>

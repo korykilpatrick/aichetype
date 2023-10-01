@@ -26,28 +26,48 @@ def get_projects():
     response.headers['Content-Type'] = 'application/json'
     return response
 
+from collections import defaultdict
+
 @books_bp.route('/api/books', methods=['GET'])
 def get_books():
-    books = dal.execute('select * from books',)
-    book_list = [
-        {
-            'id': book.id,
-            'created_at': book.created_at.isoformat(),
-            'img_url': book.img_url,
-            'title': book.title,
-            'author': book.author,
-            'author_link': book.author_link,
-            'num_pages': book.num_pages,
-            'date_added': book.date_added,
-            'date_started': book.date_started,
-            'date_read': book.date_read,
-            'blurb': book.blurb,
-            'rating': book.rating,
-            'date_pub': book.date_pub,
-            'book_link': book.book_link,
-        }
-    for book in books]
+    query = '''
+    SELECT b.*, bs.shelf_id, s.name as shelf_name
+    FROM books b
+    LEFT JOIN books_shelves bs ON b.id = bs.book_id
+    LEFT JOIN bookshelves s ON bs.shelf_id = s.id
+    '''
+    results = dal.execute(query)
+    
+    books_dict = defaultdict(list)
+    for row in results:
+        book_id = row.id
+        if book_id not in books_dict:
+            books_dict[book_id] = {
+                'id': row.id,
+                'created_at': row.created_at.isoformat(),
+                'img_url': row.img_url,
+                'title': row.title,
+                'author': row.author,
+                'author_link': row.author_link,
+                'num_pages': row.num_pages,
+                'date_added': row.date_added,
+                'date_started': row.date_started,
+                'date_read': row.date_read if row.date_read else row.date_added,
+                'blurb': row.blurb,
+                'rating': row.rating,
+                'date_pub': row.date_pub,
+                'book_link': row.book_link,
+                'shelves': []
+            }
+        if row.shelf_id and row.shelf_name:
+            books_dict[book_id]['shelves'].append({
+                'shelf_id': row.shelf_id,
+                'shelf_name': row.shelf_name
+            })
+
+    book_list = list(books_dict.values())
     return jsonify(book_list)
+
 
 @projects_bp.route('/api/projects/<string:project_name>', methods=['GET'])
 def get_project(project_name):

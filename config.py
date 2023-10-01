@@ -14,8 +14,8 @@ class ProductionConfig(Config):
 class TestingConfig(Config):
     TESTING = True
 
-DB_NAME = "aichetype"
-DB_USER = "korykilpatrick"
+DB_NAME = "numinousloop"
+DB_USER = "numinousloop"
 DB_PASSWORD = "plumbus"
 DB_HOST = "localhost"
 DB_PORT = "5432"
