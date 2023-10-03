@@ -5,7 +5,7 @@ import '../css/Bookshelf.css';
 const Bookshelf = () => {
   const [books, setBooks] = useState([]);
   const [filteredBooks, setFilteredBooks] = useState([]);
-  const booksPerRow = 10; // Adjust this number based on how many books you want in a row
+  const booksPerRow = 5; // Adjust this number based on how many books you want in a row
 
   useEffect(() => {
     fetch('/api/books')
@@ -42,19 +42,21 @@ const Bookshelf = () => {
   };
 
   return (
-    <div className="bookshelf" style={{ backgroundImage: `url('/images/wood-texture.jpg')` }}>
+    <div className="bookshelf">
       <FilterBar setFilteredBooks={setFilteredBooks} books={books} />
-      {Array.from({ length: Math.ceil(filteredBooks.length / booksPerRow) }, (_, i) => {
-        const start = i * booksPerRow;
-        const end = start + booksPerRow;
-        const rowBooks = filteredBooks.slice(start, end);
-        return (
-          <div key={i} className="book-row">
-            {renderRow(rowBooks)}
-            <div className="shelf"></div>
-          </div>
-        );
-      })}
+      <div className="bookshelf-container">
+        {Array.from({ length: Math.ceil(filteredBooks.length / booksPerRow) }, (_, i) => {
+          const start = i * booksPerRow;
+          const end = start + booksPerRow;
+          const rowBooks = filteredBooks.slice(start, end);
+          return (
+            <div key={i} className="book-row">
+              {renderRow(rowBooks)}
+              <div className="shelf"></div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

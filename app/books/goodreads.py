@@ -38,53 +38,45 @@ def extract_book_info(row):
         num_ratings, date_pub, rating, blurb, date_added, date_started, date_read
     )
 
-def get_books_from_goodreads(shelf_url, page=1):
-    response = requests.get(f"{shelf_url}&page={page}")
+def get_books_from_goodreads(profile_url, page=1):
+    response = requests.get(f"{profile_url}&page={page}")
     soup = BeautifulSoup(response.text, 'html.parser')
     return [extract_book_info(row) for row in soup.select('tr.bookalike.review')]
 
-def get_book_ids_from_shelves(profile_url, shelf, book_id_lookup, page=1):
+def get_books_from_shelves(profile_url, shelf, book_id_lookup, page=1):
     url = f"{profile_url}&shelf={shelf}&page={page}"
     response = requests.get(url)
     soup = BeautifulSoup(response.text, 'html.parser')
     book_ids = []
     for row in soup.select('tr.bookalike.review'):
         title = row.select_one('td.field.title a').text.strip()
+        input(title)
         if title in book_id_lookup:
             book_ids.append(book_id_lookup[title])
     return book_ids
 
-def seed_books(profile_url):
-    for shelf in ['currently-reading', 'read']:
-        # ignoring my 'Want To Read' section bc its stale
-        shelf_url = f"{profile_url}&shelf={shelf}"
-        i = 1
-        while True:
-            books = get_books_from_goodreads(shelf_url, page=i)
-            if not books:
-                break
-            db_utils.insert_records(dal, 'books', books, many=True)
-            print(books[0].title)
-            i += 1
+profile_url = f"https://www.goodreads.com/review/list/76731654-kory-kilpatrick?utf8=%E2%9C%93&ref=nav_mybooks"
+# for shelf in ['currently-reading', 'read']:
+#     i = 1
+#     while True:
+#         books = get_books_from_goodreads(profile_url, page=i)
+#         if not books:
+#             break
+#         db_utils.insert_records(dal, 'books', books, many=True)
+#         print(books[0].title)
+#         i += 1
     
 
-def seed_books_shelves(profile_url):
-    shelves = dal.execute('select * from bookshelves')
-    book_id_lookup = {b.title: b.id for b in dal.execute('select * from books')}
-    inserts = []
-    for shelf in shelves:
-        print(shelf.name)
-        i = 1
-        while True:
-            book_ids = get_book_ids_from_shelves(profile_url, shelf.name, book_id_lookup, page=i)
-            if not book_ids:
-                break
-            inserts += [(id, shelf.id) for id in book_ids]
-            i += 1
-    dal.execute('INSERT INTO books_shelves (book_id, shelf_id) values (%s, %s)', inserts, many=True)
-    print(f'Inserted {len(inserts)} books_shelves records.')
+shelves = dal.execute('select * from bookshelves')
+book_id_lookup = {b.title: b.id for b in dal.execute('select * from books')}
+for shelf in shelves:
+    print(shelf.name)
+    i = 1
+    while True:
+        book_ids = get_books_from_shelves(profile_url, shelf.name, book_id_lookup, page=i)
+        if not books:
+            break
+        records = [(id, shelf.id) for id in book_ids]
+        db_utils.insert_records(dal, 'books_shelves', records, many=True)
+        i += 1
 
-if __name__ == '__main__':
-    profile_url = f"https://www.goodreads.com/review/list/76731654-kory-kilpatrick?utf8=%E2%9C%93&ref=nav_mybooks"
-    seed_books(profile_url)
-    seed_books_shelves(profile_url)

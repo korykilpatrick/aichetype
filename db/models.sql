@@ -1,6 +1,5 @@
-drop table if exists books_shelves;
 
-drop table if exists projects;
+-- Models for Postgres database
 create table projects (
     id serial primary key,
     name varchar(255) not null,
@@ -9,7 +8,8 @@ create table projects (
     updated_at timestamp not null default now()
 );
 
-drop table if exists books;
+-- make a sql model based on this python namedtuple: Book = namedtuple('Book', ['img_url', 'title', 'book_link', 'author', 'author_link', 'num_pages', 'avg_rating', 'num_ratings', 'date_pub', 'rating', 'review', 'date_added', 'date_started', 'date_read'])
+
 create table books (
     id serial primary key,
     img_url varchar(255),
@@ -31,21 +31,7 @@ create table books (
     updated_at timestamp not null default now()
 );
 
-update books set date_pub='1989' where title='The Art of being';
-update books set date_pub='1961' where title='memories, dreams, reflections';
-update books set date_pub='2016' where title='The 21st Century Case for Gold: A New Information Theory of Money';
-update books set date_pub='1917' where title='The Tao of Seneca: Practical Letters from a Stoic Master, Volume 1';
-update books set date_pub='2018' where title='The Four Noble Truths of Love: Buddhist Wisdom for Modern Relationships';
-update books set date_pub='2009' where title='The Master and His Emissary: The Divided Brain and the Making of the Western World';
-update books set date_pub='1916' where title='A Portrait of the Artist as a Young Man';
-update books set date_pub='2020' where title='David Whyte: Essentials';
-update books set date_pub='May 04, 2021' where title='Models of the Mind: How Physics, Engineering and Mathematics Have Shaped Our Understanding of the Brain';
-update books set date_pub='February 04, 2020' where title='Deep Learning for Coders with Fastai and Pytorch: AI Applications Without a PhD';
-update books set date_pub='May 11, 2021' where title='The Comfort Crisis: Embrace Discomfort To Reclaim Your Wild, Happy, Healthy Self';
-update books set date_pub='August 29, 2016' where title='The Internet of Money';
-
-
-drop table if exists bookshelves;
+-- Create the bookshelves table
 CREATE TABLE bookshelves (
     id SERIAL PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
@@ -54,8 +40,9 @@ CREATE TABLE bookshelves (
 
 -- Insert the shelves into the bookshelves table
 INSERT INTO bookshelves (name) VALUES
-('read'),
-('currently-reading'),
+('Read'),
+('Currently Reading'),
+('Want to Read'),
 ('all-time'),
 ('bio-neuro'),
 ('biography'),
