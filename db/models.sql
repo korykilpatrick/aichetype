@@ -38,34 +38,6 @@ CREATE TABLE bookshelves (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Insert the shelves into the bookshelves table
-INSERT INTO bookshelves (name) VALUES
-('Read'),
-('Currently Reading'),
-('Want to Read'),
-('all-time'),
-('bio-neuro'),
-('biography'),
-('biz'),
-('classics'),
-('co-read'),
-('cs'),
-('fantasy'),
-('fiction'),
-('gave-up'),
-('history'),
-('non-fiction'),
-('philosophy'),
-('poetry'),
-('productivity'),
-('psychology'),
-('randomly-pickup'),
-('relationships'),
-('sci-fi'),
-('spirituality'),
-('unfinished'),
-('up-next');
-
 -- Create the books_shelves join table
 CREATE TABLE books_shelves (
     id SERIAL PRIMARY KEY,

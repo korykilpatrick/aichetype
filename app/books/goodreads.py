@@ -1,11 +1,16 @@
 import requests
 import re
 from bs4 import BeautifulSoup
-from collections import namedtuple
+from collections import namedtuple, defaultdict
 
 from db import dal
-from db.models import Book
+from db.models import Book, Bookshelf
 import db.utils as db_utils
+
+PROFILE_URL = f"https://www.goodreads.com/review/list/76731654-kory-kilpatrick"
+
+def format_title_for_comparison(t1):
+    return t1.lower().replace(' ', '').replace(':', '').replace('-', '').replace('_', '').replace('.', '').replace('!', '').replace('?', '')
 
 def extract_book_info(row):
     img_url_small = row.select_one('td.field.cover img')['src']
@@ -38,45 +43,87 @@ def extract_book_info(row):
         num_ratings, date_pub, rating, blurb, date_added, date_started, date_read
     )
 
-def get_books_from_goodreads(profile_url, page=1):
-    response = requests.get(f"{profile_url}&page={page}")
+def get_books_from_goodreads(url, page=1):
+    response = requests.get(f"{url}&page={page}")
     soup = BeautifulSoup(response.text, 'html.parser')
     return [extract_book_info(row) for row in soup.select('tr.bookalike.review')]
 
-def get_books_from_shelves(profile_url, shelf, book_id_lookup, page=1):
-    url = f"{profile_url}&shelf={shelf}&page={page}"
+def get_book_ids_from_shelves(profile_url, shelf, book_id_lookup, page=1):
+    url = f"{profile_url}?&shelf={shelf}&page={page}"
     response = requests.get(url)
     soup = BeautifulSoup(response.text, 'html.parser')
     book_ids = []
     for row in soup.select('tr.bookalike.review'):
-        title = row.select_one('td.field.title a').text.strip()
-        input(title)
-        if title in book_id_lookup:
-            book_ids.append(book_id_lookup[title])
+        title = row.select_one('td.field.title a').text.strip().lower()
+        formatted_title = format_title_for_comparison(title)
+        if formatted_title in book_id_lookup:
+            book_ids.append(book_id_lookup[formatted_title])
+        else:
+            print(f"Book not found: {title}")
     return book_ids
 
-profile_url = f"https://www.goodreads.com/review/list/76731654-kory-kilpatrick?utf8=%E2%9C%93&ref=nav_mybooks"
-# for shelf in ['currently-reading', 'read']:
-#     i = 1
-#     while True:
-#         books = get_books_from_goodreads(profile_url, page=i)
-#         if not books:
-#             break
-#         db_utils.insert_records(dal, 'books', books, many=True)
-#         print(books[0].title)
-#         i += 1
+
+def save_books(profile_url=PROFILE_URL):
+    # specifying shelves because I have stale stuff in my 'Want to Read' shelf
+    for shelf in ['currently-reading', 'read']:
+        print('shelf', shelf)
+        i = 1
+        shelf_url = profile_url + f"?shelf={shelf}"
+        while True:
+            books = get_books_from_goodreads(shelf_url, page=i)
+            if not books:
+                break
+            i += 1
+    db_utils.insert_records(dal, 'books', books, many=True, ignore=True)
+
+
+def save_bookshelves(profile_url=PROFILE_URL):
+    response = requests.get(profile_url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    shelves = []
+    for s in soup.select('div.userShelf'):
+        # also lists the number of books on the shelf, but not needed
+        name = " ".join(s.text.strip().split(' ')[:-1]).strip()
+        if name == 'Want to Read': continue
+        shelves.append(Bookshelf(name))
+    db_utils.insert_records(dal, 'bookshelves', shelves, many=True, ignore=True)
+
+def save_books_shelves(profile_url=PROFILE_URL):
+    # If any books are added to/removed from a shelf, insert/delete a record in the books_shelves table
+    book_id_lookup = {format_title_for_comparison(b.title): b.id for b in dal.execute('select id, title from books')}
+    shelves = dal.execute('select * from bookshelves')
+    books_shelves = dal.execute('select * from books_shelves')
+    shelf_book_lookup = defaultdict(list)
+    for bs in books_shelves:
+        shelf_book_lookup[bs.shelf_id].append(bs.book_id)
     
+    inserts = []
+    for shelf in shelves:
+        print(shelf.name)
+        i = 1
+        while True:
+            print('Inserts so far', inserts)
+            book_ids = get_book_ids_from_shelves(profile_url, shelf.name, book_id_lookup, page=i)
+            if not book_ids: break
+            for bid in book_ids:
+                if bid not in shelf_book_lookup[shelf.id]:
+                    inserts.append((bid, shelf.id))
+                elif bid in shelf_book_lookup[shelf.id]:
+                    shelf_book_lookup[shelf.id].remove(bid)
+            i += 1
 
-shelves = dal.execute('select * from bookshelves')
-book_id_lookup = {b.title: b.id for b in dal.execute('select * from books')}
-for shelf in shelves:
-    print(shelf.name)
-    i = 1
-    while True:
-        book_ids = get_books_from_shelves(profile_url, shelf.name, book_id_lookup, page=i)
-        if not books:
-            break
-        records = [(id, shelf.id) for id in book_ids]
-        db_utils.insert_records(dal, 'books_shelves', records, many=True)
-        i += 1
+        if shelf_book_lookup[shelf.id]:
+            # book(s) were removed from this shelf
+            print(f'deleting from {shelf.name}', shelf_book_lookup[shelf.id])
+            dal.execute(f"delete from books_shelves where shelf_id={shelf.id} and book_id in ({','.join([str(i) for i in shelf_book_lookup[shelf.id]])})")
 
+    if inserts:
+        db_utils.insert_records(dal, 'books_shelves', inserts, many=True, ignore=True)
+
+def update_all():
+    # save_books()
+    # save_bookshelves()
+    save_books_shelves()
+
+if __name__ == '__main__':
+    update_all()
