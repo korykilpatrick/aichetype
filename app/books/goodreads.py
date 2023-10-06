@@ -76,7 +76,6 @@ def save_books(profile_url=PROFILE_URL):
             i += 1
     db_utils.insert_records(dal, 'books', books, many=True, ignore=True)
 
-
 def save_bookshelves(profile_url=PROFILE_URL):
     response = requests.get(profile_url)
     soup = BeautifulSoup(response.text, 'html.parser')

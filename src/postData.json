@@ -8,6 +8,11 @@
       "name": "Tech Post",
       "component": "TechPost",
       "tags": ["tech", "coding"]
+    },
+    {
+      "name": "Intro Post",
+      "component": "IntroPost",
+      "tags": ["tech", "coding"]
     }
 ]
   
