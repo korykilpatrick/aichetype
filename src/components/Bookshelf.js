@@ -43,6 +43,8 @@ const Bookshelf = () => {
 
   return (
     <div className="bookshelf">
+        <p>To me, reading is both sanctuary and odyssey, a balm for the soul and a passport to uncharted realms. It's a bridge to other minds and souls, a refuge from life's storms, and a tool that hones my spirit. It's my secret strength, my constant companion, shaping my very essence and deepening my grasp of this beautiful, bewildering universe. I stand in awe of the authors who brave the blank page, for they have enriched my life in immeasurable ways.</p>
+        <p>These are all the books I've read since I started using <a href="https://www.goodreads.com/review/list/76731654-kory-kilpatrick" target="_blank">Goodreads</a> in 2017.</p>
       <FilterBar setFilteredBooks={setFilteredBooks} books={books} />
       <div className="bookshelf-container">
         {Array.from({ length: Math.ceil(filteredBooks.length / booksPerRow) }, (_, i) => {

@@ -31,7 +31,7 @@ const App = () => {
             {postData.map((post, index) => (
               <Route
                 key={index}
-                path={`/${post.component}`}
+                path={`/${post.endpoint}`}
                 element={React.createElement(LazyComponent(post.component))}
               />
             ))}
@@ -41,9 +41,9 @@ const App = () => {
           </Routes>
         </Suspense>
         {/* <ContactInfo /> */}
-        <footer>
+        {/* <footer>
           <p>© {new Date().getFullYear()} Kory Kilpatrick. All rights reserved, motherfucker.</p>
-        </footer>
+        </footer> */}
       </div>
     </Router>
   );

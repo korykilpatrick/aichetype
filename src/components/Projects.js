@@ -13,7 +13,7 @@ const Projects = () => {
       <div>
         {postData.map((post, index) => (
           <ul key={index}>
-              <Link to={`/${post.component}`}>{post.name}</Link>
+              <Link to={`/${post.endpoint}`}>{post.name}</Link>
           </ul>
         ))}
       </div>

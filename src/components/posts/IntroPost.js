@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Button } from 'antd';
+// import { Card, Button } from 'antd';
 import { Link } from 'react-router-dom';
 
 const IntroPost = () => {
@@ -7,7 +7,7 @@ const IntroPost = () => {
 
   return (
     <div style={{ padding: '20px' }}>
-      <Card title="Bridging the Gap Between Stream of Consciousness and Blogging" bordered={false}>
+      {/* <Card title="Bridging the Gap Between Stream of Consciousness and Blogging" bordered={false}> */}
         <p>
           There's something intimidating about the empty space of a blank page. Despite the fact that I often have 
           countless ideas I want to share, sometimes translating thoughts into written words can be a daunting task. 
@@ -52,10 +52,10 @@ const IntroPost = () => {
           more updates!
         </p>
 
-        <Button type="primary" shape="round">
+        {/* <Button type="primary" shape="round">
           <Link to="/my-works">Check out my works</Link>
-        </Button>
-      </Card>
+        </Button> */}
+      {/* </Card> */}
     </div>
   );
 };

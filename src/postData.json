@@ -1,18 +1,21 @@
 [
     {
-      "name": "Penguin Post",
-      "component": "PenguinPost",
-      "tags": ["animals", "nature"]
-    },
-    {
       "name": "Tech Post",
       "component": "TechPost",
+      "endpoint": "tech",
       "tags": ["tech", "coding"]
     },
     {
       "name": "Intro Post",
       "component": "IntroPost",
+      "endpoint": "intro",
       "tags": ["tech", "coding"]
+    },
+    {
+      "name": "Poker Post",
+      "component": "PokerPost",
+      "endpoint": "poker",
+      "tags": ["poker", "my story"]
     }
 ]
   
