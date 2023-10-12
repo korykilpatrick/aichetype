@@ -1,0 +1,29 @@
+/* .projects-container {
+    margin: 0 auto;
+    max-width: 500px;
+    padding: 0 20px;
+  } */
+
+
+.Card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.Card:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.ListGroup-item {
+    border-left: none;
+    border-right: none;
+}
+
+.ListGroup-item:first-child {
+    border-top: none;
+}
+
+.ListGroup-item:last-child {
+    border-bottom: none;
+}

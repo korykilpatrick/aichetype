@@ -1,12 +1,13 @@
-```jsx
-import React from 'react';
-import { Card, Button } from 'antd';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import "../../css/Projects.css";
 
-const BlogPost = () => {
+const IntroPost = () => {
+  const [count, setCount] = useState(0);
+
   return (
-    <div style={{ padding: '30px' }}>
-      <Card title="Bridging the Gap Between Stream of Consciousness and Blogging" bordered={false}>
+    <div classnane="projects-container" style={{ padding: '20px' }}>
+      {/* <Card title="Bridging the Gap Between Stream of Consciousness and Blogging" bordered={false}> */}
         <p>
           There's something intimidating about the empty space of a blank page. Despite the fact that I often have 
           countless ideas I want to share, sometimes translating thoughts into written words can be a daunting task. 
@@ -51,20 +52,12 @@ const BlogPost = () => {
           more updates!
         </p>
 
-        <Button type="primary" shape="round">
+        {/* <Button type="primary" shape="round">
           <Link to="/my-works">Check out my works</Link>
-        </Button>
-      </Card>
+        </Button> */}
+      {/* </Card> */}
     </div>
   );
 };
 
-export default BlogPost;
-```
-
-To install 'antd' and 'react-router-dom', run the following commands:
-
-```
-npm install antd
-npm install react-router-dom
-```
+export default IntroPost;

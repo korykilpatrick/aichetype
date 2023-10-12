@@ -41,9 +41,9 @@ const App = () => {
           </Routes>
         </Suspense>
         {/* <ContactInfo /> */}
-        {/* <footer>
+        <footer>
           <p>© {new Date().getFullYear()} Kory Kilpatrick. All rights reserved, motherfucker.</p>
-        </footer> */}
+        </footer>
       </div>
     </Router>
   );

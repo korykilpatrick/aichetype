@@ -6,10 +6,11 @@ from pydub.silence import split_on_silence
 
 from env import OPENAI_API_KEY, VOICE_MEMO_PATH
 
+# TODO - take system msg as optional input. need to be able to tell it what the tone of the audio should be
 openai.api_key = OPENAI_API_KEY
 # GPT_MODEL = 'gpt-3.5-turbo'
 GPT_MODEL = 'gpt-4'
-SYSTEM_MSG = """Take the following semi-coherent stream of consciousness audio transcription and refine it. Stay true to the original content and voice, but polish it into a well-structured and clear blog post format. Your response should be formatted as React JSX code. Use hyperlinks when possible and useful. Use react libraries and styling to make the post interactive or visually appealing when appropriate. If additional libraries or styling is needed, please include instructions on how to install and run them"""
+SYSTEM_MSG = """Take the following semi-coherent stream of consciousness audio transcription and refine it. Stay true to the original content and voice, but polish it into a well-structured and clear blog post format. Your response should be formatted as React JSX code. Use hyperlinks when possible and useful. Use react-bootstrap for styling to make the post interactive or visually appealing when appropriate. If additional libraries or styling is needed, please include instructions on how to install and run them"""
 
 # WHISPER threshold in bytes (25MB in bytes)
 WHISPER_THRESHOLD = 25 * 1024 * 1024
@@ -96,7 +97,7 @@ def voice_to_blog_post(file_path):
     return polished_post
 
 if __name__ == '__main__':
-    filename = 'poker_overview'
+    filename = 'mac_miller'
     file_extension = 'm4a'
     file_path = f"{VOICE_MEMO_PATH}/{filename}.{file_extension}"
     # input(f'Press enter to transcribe {filename}')

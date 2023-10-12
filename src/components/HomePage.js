@@ -11,7 +11,7 @@ const HomePage = () => (
       In past lives I was one of the best poker players in the world, and more recently co-founder of a small B2B SaaS company in niche high-frequency trading space. I also have previously and continue to invest in ambitious, mission-driven startups.
     </p>
     <p>
-      I'm currently considering getting *gasp* my first job! I'm eager to start or join a team of like-minded individuals who are passionate about leveraging technology to solve the world's most pressing problems. Until then, I'll be self-studying computer science and software engineering and hacking around on random projects like this site.
+      I'm currently exploring whats next for me professionally. I'm eager to start or join a team of like-minded individuals who are passionate about leveraging technology to solve the world's most pressing problems. Until then, I'll be self-studying computer science and software engineering and hacking around on random projects like this site.
     </p>
   </section>
 );

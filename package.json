@@ -20,8 +20,16 @@
   "homepage": "https://github.com/korykilpatrick/aichetype#readme",
   "dependencies": {
     "react-bootstrap": "^2.9.0",
+    "axios": "^1.5.1",
+    "http-proxy": "^1.18.1",
+    "http-proxy-middleware": "^2.0.6",
     "react-router-dom": "^6.9.0",
     "react-scripts": "^5.0.1"
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "http://localhost:5000",
+  "devDependencies": {
+    "css-loader": "^6.8.1",
+    "html-webpack-plugin": "^5.5.3",
+    "webpack-cli": "^5.1.4"
+  }
 }

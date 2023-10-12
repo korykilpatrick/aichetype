@@ -1,21 +1,27 @@
 [
     {
-      "name": "Tech Post",
-      "component": "TechPost",
-      "endpoint": "tech",
-      "tags": ["tech", "coding"]
-    },
-    {
-      "name": "Intro Post",
+      "name": "Intro",
       "component": "IntroPost",
       "endpoint": "intro",
       "tags": ["tech", "coding"]
     },
     {
-      "name": "Poker Post",
+      "name": "Poker",
       "component": "PokerPost",
       "endpoint": "poker",
-      "tags": ["poker", "my story"]
+      "tags": ["work", "poker", "my story", "gambling"]
+    },
+    {
+      "name": "DFS",
+      "component": "DFSPost",
+      "endpoint": "dfs",
+      "tags": ["work", "gambling"]
+    },
+    {
+      "name": "MacMiller",
+      "component": "MacMillerPost",
+      "endpoint": "macmiller",
+      "tags": ["music", "art", "storytelling"]
     }
 ]
   
