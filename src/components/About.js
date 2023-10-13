@@ -16,7 +16,6 @@ const About = () => {
       <p>
         I'm not active on socials, but you can say hi to me on <a href="https://twitter.com/kory_kilpatrick" target="_blank" rel="noopener noreferrer">Twitter</a> or send me an <a href="mailto:koryrkilpatrick@gmail.com?subject=Hey%20good%20lookin&body=Are%20you%20a%20bank%20loan?%20Because%20you%20have%20my%20interest.">email</a> ✌️
       </p>
-      <h1>Hi Bethany 😉</h1>
     </div>
   );
 };

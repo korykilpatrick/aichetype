@@ -35,14 +35,14 @@ const App = () => {
                 element={React.createElement(LazyComponent(post.component))}
               />
             ))}
-            <Route path="/links" element={<Projects />} />
+            {/* <Route path="/links" element={<Projects />} /> */}
             <Route path="/bookshelf" element={<Bookshelf />} />
             <Route path="/about" element={<About />} />
           </Routes>
         </Suspense>
         {/* <ContactInfo /> */}
-        <footer>
-          <p>© {new Date().getFullYear()} Kory Kilpatrick. All rights reserved, motherfucker.</p>
+        <footer className='footer'>
+          <p>All text licensed under the <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">Creative Commons Attribution-NonCommercial 4.0 International License</a></p>
         </footer>
       </div>
     </Router>
