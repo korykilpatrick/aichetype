@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 from collections import namedtuple, defaultdict
 
 from db import dal
-from db.models import Book, Bookshelf
+from db.models import Book, Bookshelf, BooksShelves
 import db.utils as db_utils
 
 PROFILE_URL = f"https://www.goodreads.com/review/list/76731654-kory-kilpatrick"
@@ -12,7 +12,11 @@ PROFILE_URL = f"https://www.goodreads.com/review/list/76731654-kory-kilpatrick"
 def format_title_for_comparison(t1):
     return t1.lower().replace(' ', '').replace(':', '').replace('-', '').replace('_', '').replace('.', '').replace('!', '').replace('?', '')
 
+def get_goodreads_book_id(row):
+    return int(row.find('div', {'class': 'js-tooltipTrigger tooltipTrigger'}).get('data-resource-id'))
+
 def extract_book_info(row):
+    goodreads_id = get_goodreads_book_id(row)
     img_url_small = row.select_one('td.field.cover img')['src']
     img_url = img_url_small.replace('i.gr-assets.com', 'images-na.ssl-images-amazon.com').replace('SY75', '').replace('SX50', '').replace('_', '').replace('..', '.').replace('l/', 'i/')
     title = row.select_one('td.field.title a').text.strip()
@@ -39,7 +43,7 @@ def extract_book_info(row):
     date_read = None if date_read.lower() == 'not set' else date_read
 
     return Book(
-        img_url, img_url_small, title, book_link, author, author_link, num_pages, avg_rating,
+        goodreads_id, img_url, img_url_small, title, book_link, author, author_link, num_pages, avg_rating,
         num_ratings, date_pub, rating, blurb, date_added, date_started, date_read
     )
 
@@ -48,81 +52,97 @@ def get_books_from_goodreads(url, page=1):
     soup = BeautifulSoup(response.text, 'html.parser')
     return [extract_book_info(row) for row in soup.select('tr.bookalike.review')]
 
-def get_book_ids_from_shelves(profile_url, shelf, book_id_lookup, page=1):
-    url = f"{profile_url}?&shelf={shelf}&page={page}"
-    response = requests.get(url)
-    soup = BeautifulSoup(response.text, 'html.parser')
-    book_ids = []
-    for row in soup.select('tr.bookalike.review'):
-        title = row.select_one('td.field.title a').text.strip().lower()
-        formatted_title = format_title_for_comparison(title)
-        if formatted_title in book_id_lookup:
-            book_ids.append(book_id_lookup[formatted_title])
-        else:
-            print(f"Book not found: {title}")
-    return book_ids
-
-
-def save_books(profile_url=PROFILE_URL):
+def save_books(saved_books, profile_url=PROFILE_URL):
+    """ saved_books: dict of goodreads_id -> True
+        Saves books to the database. 
+        If saved_books is passed in, it will skip books that are already in the database
+    """
+    new_books = []
     # specifying shelves because I have stale stuff in my 'Want to Read' shelf
     for shelf in ['currently-reading', 'read']:
         print('shelf', shelf)
         i = 1
         shelf_url = profile_url + f"?shelf={shelf}"
         while True:
-            books = get_books_from_goodreads(shelf_url, page=i)
-            if not books:
+            shelf_books = get_books_from_goodreads(shelf_url, page=i)
+            if not shelf_books:
                 break
-            i += 1
-    db_utils.insert_records(dal, 'books', books, many=True, ignore=True)
 
-def save_bookshelves(profile_url=PROFILE_URL):
+            for b in shelf_books:
+                if saved_books.get(b.goodreads_id):
+                    del saved_books[b.goodreads_id]
+                else:
+                    new_books.append(b)
+            i += 1
+    if saved_books:
+        # delete books that are no longer on my shelves
+        print('deleting books', saved_books)
+        dal.execute(f"delete from books_shelves where book_id in ({','.join([str(b.id) for _, b in saved_books.items()])})")
+        dal.execute(f"delete from books where goodreads_id in ({','.join([str(i) for i in saved_books.keys()])})")
+    if new_books:
+        db_utils.insert_records(dal, 'books', new_books, many=True, ignore=True)
+
+def get_goodreads_ids_from_shelves(profile_url, shelf, page=1):
+    url = f"{profile_url}?&shelf={shelf}&page={page}"
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    return [get_goodreads_book_id(row) for row in soup.select('tr.bookalike.review')]
+
+def save_bookshelves(saved_bookshelves, profile_url=PROFILE_URL):
     response = requests.get(profile_url)
     soup = BeautifulSoup(response.text, 'html.parser')
     shelves = []
     for s in soup.select('div.userShelf'):
-        # also lists the number of books on the shelf, but not needed
-        name = " ".join(s.text.strip().split(' ')[:-1]).strip()
-        if name == 'Want to Read': continue
-        shelves.append(Bookshelf(name))
+        # also lists the number of books on the shelf, but not storing for atomicity purposes
+        name = " ".join(s.text.strip().split(' ')[:-1]).strip().lower().replace(' ', '-')
+        if name == 'want-to-read': continue
+        elif not saved_bookshelves.get(name): 
+            shelves.append(Bookshelf(name))
     db_utils.insert_records(dal, 'bookshelves', shelves, many=True, ignore=True)
 
-def save_books_shelves(profile_url=PROFILE_URL):
-    # If any books are added to/removed from a shelf, insert/delete a record in the books_shelves table
-    book_id_lookup = {format_title_for_comparison(b.title): b.id for b in dal.execute('select id, title from books')}
-    shelves = dal.execute('select * from bookshelves')
-    books_shelves = dal.execute('select * from books_shelves')
+def save_books_shelves(saved_books_shelves, bookshelves, profile_url=PROFILE_URL):
+    # Create a lookup dictionary to map Goodreads IDs to book IDs
+    books = dal.execute('select id as book_id, goodreads_id from books')
+    book_id_lookup = {b.goodreads_id: b.book_id for b in books}
+    goodreads_id_lookup = {b.book_id: b.goodreads_id for b in books}
+
+    # Create a lookup dictionary to map shelf IDs to Goodreads IDs
     shelf_book_lookup = defaultdict(list)
-    for bs in books_shelves:
-        shelf_book_lookup[bs.shelf_id].append(bs.book_id)
-    
+    for bs in saved_books_shelves:
+        shelf_book_lookup[bs.shelf_id].append(goodreads_id_lookup[bs.book_id])
+
     inserts = []
-    for shelf in shelves:
-        print(shelf.name)
+    for shelf_name, shelf in bookshelves.items():
+        print(f"Processing shelf: {shelf_name}")
         i = 1
         while True:
-            print('Inserts so far', inserts)
-            book_ids = get_book_ids_from_shelves(profile_url, shelf.name, book_id_lookup, page=i)
-            if not book_ids: break
-            for bid in book_ids:
-                if bid not in shelf_book_lookup[shelf.id]:
-                    inserts.append((bid, shelf.id))
-                elif bid in shelf_book_lookup[shelf.id]:
-                    shelf_book_lookup[shelf.id].remove(bid)
+            goodreads_ids = get_goodreads_ids_from_shelves(profile_url, shelf_name, page=i)
+            if not goodreads_ids: 
+                break
+
+            for gid in goodreads_ids:
+                if gid not in shelf_book_lookup[shelf.id] and gid in book_id_lookup:
+                    inserts.append(BooksShelves(book_id_lookup[gid], shelf.id))
+                elif gid in shelf_book_lookup[shelf.id]:
+                    shelf_book_lookup[shelf.id].remove(gid)
             i += 1
 
         if shelf_book_lookup[shelf.id]:
-            # book(s) were removed from this shelf
-            print(f'deleting from {shelf.name}', shelf_book_lookup[shelf.id])
-            dal.execute(f"delete from books_shelves where shelf_id={shelf.id} and book_id in ({','.join([str(i) for i in shelf_book_lookup[shelf.id]])})")
+            # Book(s) were removed from this shelf
+            print(f'Deleting from {shelf.name}', shelf_book_lookup[shelf.id])
+            book_ids_to_delete = [book_id_lookup[gid] for gid in shelf_book_lookup[shelf.id]]
+            dal.execute(f"DELETE FROM books_shelves WHERE shelf_id = {shelf.id} AND book_id IN ({','.join(map(str, book_ids_to_delete))})")
 
     if inserts:
         db_utils.insert_records(dal, 'books_shelves', inserts, many=True, ignore=True)
 
 def update_all():
-    # save_books()
-    # save_bookshelves()
-    save_books_shelves()
+    saved_books = {b.goodreads_id: b for b in dal.execute('select * from books')}
+    saved_bookshelves = {b.name: b for b in dal.execute('select * from bookshelves')}
+    saved_books_shelves = dal.execute('select * from books_shelves')
+    save_books(saved_books)
+    save_bookshelves(saved_bookshelves)
+    save_books_shelves(saved_books_shelves, saved_bookshelves)
 
 if __name__ == '__main__':
     update_all()
