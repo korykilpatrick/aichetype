@@ -22,6 +22,12 @@
       "component": "MacMillerPost",
       "endpoint": "macmiller",
       "tags": ["music", "art", "storytelling"]
+    },
+    {
+      "name": "CareerOverview",
+      "component": "CareerOverviewPost",
+      "endpoint": "careeroverview",
+      "tags": ["work", "career", "my story"]
     }
 ]
   

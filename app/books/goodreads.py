@@ -120,8 +120,8 @@ def save_books_shelves(profile_url=PROFILE_URL):
         db_utils.insert_records(dal, 'books_shelves', inserts, many=True, ignore=True)
 
 def update_all():
-    # save_books()
-    # save_bookshelves()
+    save_books()
+    save_bookshelves()
     save_books_shelves()
 
 if __name__ == '__main__':
