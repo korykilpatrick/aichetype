@@ -26,7 +26,8 @@ const App = () => {
         <Navbar />
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            {/* <Route path="/" element={<HomePage />} /> */}
+            <Route path="/" element={<Bookshelf />} />
             <Route path="/projects" element={<Projects />} />
             {postData.map((post, index) => (
               <Route

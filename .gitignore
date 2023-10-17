@@ -116,6 +116,7 @@ venv.bak/
 # Sensitive stuff
 scripts/bootstrap.sh
 scripts/deploy*.sh
+scripts/
 
 # Spyder project settings
 .spyderproject

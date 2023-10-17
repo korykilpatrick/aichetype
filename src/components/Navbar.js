@@ -6,13 +6,13 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <ul>
-        <li>
+        {/* <li>
           <Link to="/posts">Posts</Link>
         </li>
         <li>
           <Link to="/projects">Projects</Link>
         </li>
-        {/* <li>
+        <li>
           <Link to="/links">Links</Link>
         </li> */}
         <li>

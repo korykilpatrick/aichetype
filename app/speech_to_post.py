@@ -4,13 +4,13 @@ from pydub import AudioSegment
 from pydub.playback import play
 from pydub.silence import split_on_silence
 
-from env import OPENAI_API_KEY, VOICE_MEMO_PATH
+from env import OPENAI_API_KEY, VOICE_MEMO_PATH, PROJECT_PATH
 
 # TODO - take system msg as optional input. need to be able to tell it what the tone of the audio should be
 openai.api_key = OPENAI_API_KEY
 # GPT_MODEL = 'gpt-3.5-turbo'
 GPT_MODEL = 'gpt-4'
-SYSTEM_MSG = """Take the following semi-coherent stream of consciousness audio transcription and refine it. Stay true to the original content and voice, but polish it into a well-structured and clear blog post format. Your response should be formatted as React JSX code. Use hyperlinks when possible and useful. Use react-bootstrap for styling to make the post interactive or visually appealing when appropriate. If additional libraries or styling is needed, please include instructions on how to install and run them"""
+SYSTEM_MSG = """Take the following semi-coherent stream of consciousness audio transcription and refine it. Stay true to the original content and voice, but polish it into a well-structured and clear blog post. Change as little as possible, just get rid of the colloquialisms and make it sound like good writing. Your response should be formatted as React JSX code. Use hyperlinks when possible and useful. Use react-bootstrap for styling to make the post interactive or visually appealing when appropriate. The output of your response will be written as a React .js file."""
 
 # WHISPER threshold in bytes (25MB in bytes)
 WHISPER_THRESHOLD = 25 * 1024 * 1024
@@ -59,7 +59,7 @@ def transcribe_audio(audio_file_path):
     filename = audio_file_path.split('/')[-1].split('.')[0]
     file_size = os.path.getsize(audio_file_path)
     if file_size <= WHISPER_THRESHOLD:
-        input('small enough')
+        print('Small enough to process')
         audio_file= open(audio_file_path, "rb")
         transcription = openai.Audio.transcribe("whisper-1", audio_file)
         transcript =  transcription['text']
@@ -89,18 +89,28 @@ def polish_transcription(transcript):
 def voice_to_blog_post(file_path):
     filename = file_path.split('/')[-1].split('.')[0]
     raw_transcript = transcribe_audio(file_path)
-    with open(f"{filename}_transcript.txt", 'w') as f:
+    with open(f"{PROJECT_PATH}/app/transcripts/{filename}_transcript.txt", 'w') as f:
         f.write(raw_transcript)
-
+    # read raw transcript from transcripts dir
+    # with open(f"transcripts/{filename}_transcript.txt", 'r') as f:
+    #     raw_transcript = f.read()
     input('Press enter to polish the transcription w/ gpt')
-    polished_post = polish_transcription(raw_transcript)
-    return polished_post
+    gpt_response = polish_transcription(raw_transcript)
+    write_component(filename, gpt_response)
+    return gpt_response
+
+def write_component(filename, gpt_response):
+    # the component is between ``` and ```
+    component = gpt_response.split('```')[1]
+    posts_dir = f"{PROJECT_PATH}/src/components/posts"
+    camel_cased = ''.join(word.capitalize() for word in filename.split('_'))
+    with open(f'{posts_dir}/{camel_cased}Post.js', 'w') as f:
+        f.write(blog_post)
 
 if __name__ == '__main__':
-    filename = 'mac_miller'
+    filename = 'career_overview'
     file_extension = 'm4a'
     file_path = f"{VOICE_MEMO_PATH}/{filename}.{file_extension}"
     # input(f'Press enter to transcribe {filename}')
     blog_post = voice_to_blog_post(file_path)
-    with open(f'{filename}.txt', 'w') as f:
-        f.write(blog_post)
+    
