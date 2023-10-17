@@ -5,7 +5,7 @@ import '../css/Bookshelf.css';
 const Bookshelf = () => {
   const [books, setBooks] = useState([]);
   const [filteredBooks, setFilteredBooks] = useState([]);
-  const booksPerRow = 5; // Adjust this number based on how many books you want in a row
+  const booksPerRow = 5; // can adjust this
 
   useEffect(() => {
     fetch('/api/books')
@@ -45,7 +45,7 @@ const Bookshelf = () => {
     <div className="bookshelf">
         <p>Books have served as indispensable cornerstones in the blueprint of my existence. They've acted as wise guides and trusted companions. They've sent me on journeys across time and space and been the gravity keeping me tethered to Earth. Through their pages, I've established connections to a myriad of souls, both living and departed, helping me carve out my own niche in this intricate mosaic of life.</p>
 
-        <p>Starting in 2017, I began documenting the books that have crossed my path on <a href="https://www.goodreads.com/review/list/76731654-kory-kilpatrick" target="_blank">Goodreads</a>. I believe these works chose me as much as I chose them. Collectively, they weave a tapestry of my journey thorugh this wild and wonderful world.
+        <p>Starting in 2017, I began documenting the books that have crossed my path on <a href="https://www.goodreads.com/review/list/76731654-kory-kilpatrick" target="_blank">Goodreads</a>. I believe these works chose me as much as I chose them. Collectively, they weave a tapestry of my journey through this wild and wonderful world.
         </p>
       <FilterBar setFilteredBooks={setFilteredBooks} books={books} />
       <div className="bookshelf-container">

@@ -28,7 +28,7 @@ const App = () => {
           <Routes>
             {/* <Route path="/" element={<HomePage />} /> */}
             <Route path="/" element={<Bookshelf />} />
-            <Route path="/projects" element={<Projects />} />
+            <Route path="/work" element={<Projects />} />
             {postData.map((post, index) => (
               <Route
                 key={index}

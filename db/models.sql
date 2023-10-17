@@ -51,3 +51,17 @@ CREATE TABLE books_shelves (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     UNIQUE(book_id, shelf_id)
 );
+
+update books set date_pub='1989' where title='The Art of Being';
+update books set date_pub='1985' where title like '%Mr. Feynman%';
+update books set date_pub='May 10, 2016' where title like '%Case for Gold%';
+update books set date_pub='May 17, 2018' where title like '%Noble Truths of Love%';
+update books set date_pub='October 30, 2009' where title like '%Master and His Emissary%';
+update books set date_pub='December 6, 2019' where title like '%David Whyte: Essentials%';
+update books set date_pub='March 4, 2021
+' where title like '%Models of the Mind%';
+update books set date_pub='2020' where title like '%Deep Learning for Coders%';
+update books set date_pub='May 11, 2021' where title like '%Comfort Crisis%';
+update books set date_pub='1917' where title like '%Tao of Seneca%';
+update books set date_pub='2016' where title like '%Internet of Money%';
+
