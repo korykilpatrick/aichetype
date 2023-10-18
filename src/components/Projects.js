@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import postData from './../postData.json';
 import '../css/Projects.css';
 
-
 const Projects = () => {
   return (
     <div className="projects-container">

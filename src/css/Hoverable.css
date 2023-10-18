@@ -1,0 +1,22 @@
+.hover-trigger-box {
+    cursor: pointer;
+    /* margin-left: 0px; */
+    font-size: 50%;
+    vertical-align: super;
+    transition: all 0.3s ease; /* Transition only color */
+    border-radius: 50%;
+    padding: 2px;
+    background: #007acc;
+    color: white;
+  }
+  
+  .hover-trigger-box:hover {
+    /* background: transparent; */
+    color: black;
+  }
+  
+  /* .hoverable-wrapper {
+    position: relative;
+    display: inline-block;
+  } */
+  

@@ -8,6 +8,7 @@ import Projects from './components/Projects';
 import ProjectDetail from './components/ProjectDetails';
 import ContactInfo from './components/ContactInfo';
 import Bookshelf from './components/Bookshelf';
+import Work from './components/Work';
 import './css/App.css';
 import postData from './postData.json';
 
@@ -28,7 +29,8 @@ const App = () => {
           <Routes>
             {/* <Route path="/" element={<HomePage />} /> */}
             <Route path="/" element={<Bookshelf />} />
-            <Route path="/work" element={<Projects />} />
+            <Route path="/work" element={<Work />} />
+            {/* <Route path="/projects" element={<Projects />} /> */}
             {postData.map((post, index) => (
               <Route
                 key={index}
