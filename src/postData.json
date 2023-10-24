@@ -28,6 +28,24 @@
       "component": "CareerOverviewPost",
       "endpoint": "careeroverview",
       "tags": ["work", "career", "my story"]
+    },
+    {
+      "name": "Work",
+      "component": "WorkPost",
+      "endpoint": "work",
+      "tags": ["work", "career", "my story"]
+    },
+    {
+      "name": "Resume",
+      "component": "ResumePost",
+      "endpoint": "resume",
+      "tags": ["work", "career"]
+    },
+    {
+      "name": "BetterData",
+      "component": "BetterDataPost",
+      "endpoint": "betterdata",
+      "tags": ["work", "career"]
     }
 ]
   

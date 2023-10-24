@@ -1,10 +1,21 @@
-
-h2 {
-    margin-bottom: 20px;
-  }
-  
-p {
-line-height: 1.5;
-margin-bottom: 20px;
+.button-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 60px; /* or any height you prefer */
 }
-  
+
+.view-button {
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  margin: 0 5px;
+  border-radius: 12px;
+  border: 2px solid #333;
+}
+
+.view-button.active {
+  background-color: #333;
+  color: #fff;
+}
