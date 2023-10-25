@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import '../../css/WorkPost.css';
+import Image from '../Image';
 import { Hoverable } from '../component_utilities';
 
 const WorkPost = () => {
@@ -19,7 +20,8 @@ const WorkPost = () => {
             <p>
               By 2016 I was ready to move on. I still enjoyed playing and was winning at peak rates, but I was increasingly not okay with the fact that I was spending all my time and energy mastering a zero-sum game. I found myself increasingly drawn to technology, and in particular to its enormous potential as a force for good. 
             </p>
-            {/* Insert graph of winnings here */}
+            {/* <img src="https://korykilpatrick-bucket.s3.us-west-1.amazonaws.com/pokerResultsTable.jpg"></img> */}
+            <Image url="https://korykilpatrick-bucket.s3.us-west-1.amazonaws.com/pokerResultsGraph.jpg" caption="Test caption" />
             <p>
               In 2017, I moved to San Francisco and completed <a href="https://www.galvanize.com/hack-reactor/" target="_blank">Hack Reactor</a>, sparking my love for computer science. Post-bootcamp, two friends and I immersed ourselves in textbooks, online courses, and <Hoverable text="I can't speak highly enough of Bradfield, and it's founder <a href='https://x.com/oznova_' target='_blank'>Oz</a>."><a href="https://bradfieldcs.com/" target="_blank">Bradfield</a></Hoverable> programs.
               </p>
