@@ -9,10 +9,13 @@ const Hoverable = ({ text, children }) => {
   // forcing re-render because it resets some css styling fuckery
 
   const handleMouseEnter = (e) => {
-    const rect = e.target.getBoundingClientRect();
-    setBoxPosition({ top: rect.top, left: rect.left + rect.width });
+    if (!showBox) {
+      const rect = e.target.getBoundingClientRect();
+      setBoxPosition({ top: rect.top, left: rect.left + rect.width });
+    }
     setShowBox(true);
   };
+  
 
   const handleMouseLeave = () => {
     setShowBox(false);
@@ -29,7 +32,13 @@ const Hoverable = ({ text, children }) => {
       >
         ⓘ
       </span>
-      <BlueBox content={text} position={boxPosition} show={showBox} />
+      <BlueBox 
+        content={text}
+        position={boxPosition}
+        show={showBox}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave} 
+      />
     </span>
   );
 };

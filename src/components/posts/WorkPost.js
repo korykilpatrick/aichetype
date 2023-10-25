@@ -13,12 +13,11 @@ const WorkPost = () => {
               I've never had a traditional job. I became really good at online poker in high school, which had the fortunate benefit of making me money. By the time I graduated high school, I had earned over <Hoverable text="From an initial, and at the time lofty, $20 deposit">$100,000</Hoverable>. I went to college, where I made more than $1 million as a teenager, mostly in my dorm room between classes and basketball practice.
             </p>
             <p>
-              After graduating college in <Hoverable text="with a degree in..uh..Political Economy?">2012</Hoverable>, I went <Hoverable text="😉">all-in</Hoverable> on poker, dedicating over 100 hours per week to playing and studying. 
-              I quickly became one of the best Pot Limit <Hoverable text="Omaha is the 2nd most popular poker variant behind Texas Hold'em. It's basically Hold'em, but you get dealt 4 cards and can only play 2 of them.">Omaha</Hoverable> players in the world. In 2014 I won a World Series of Poker <Hoverable text="This basically means I got lucky in one tournament, a feat far less impressive than being a regular winner in the biggest cash games on the internet. But alas, TV and glory and such means this is probably how I should headline my poker resumé.">bracelet.</Hoverable>
+              After graduating college in <Hoverable text="with a degree in..uh..Political Economy?">2012</Hoverable>, I went <Hoverable text="😉">all-in</Hoverable> on poker, dedicating virtually every waking moment to playing or studying. 
+              I quickly became one of the best Pot Limit <Hoverable text="Omaha is the 2nd most popular poker variant behind Texas Hold'em. It's basically Hold'em, but you get dealt 4 cards (instead of 2) and can only play 2 of them.">Omaha</Hoverable> players in the world. In 2014 I won a World Series of Poker <Hoverable text="This basically means I got lucky in one tournament, a feat far less impressive than being a regular winner in the biggest cash games on the internet. But alas, TV and glory and such means this is probably how I should headline my poker resumé.">bracelet.</Hoverable>
             </p>
             <p>
-              By 2015, I felt I'd accomplished what I set out to do in poker. Even though I still enjoyed the game and was winning at peak rates, 
-              I was ready to move on. I found myself increasingly drawn to technology, and in particular to its enormous potential as a force for good.
+              By 2016 I was ready to move on. I still enjoyed playing and was winning at peak rates, but I was increasingly not okay with the fact that I was spending all my time and energy mastering a zero-sum game. I found myself increasingly drawn to technology, and in particular to its enormous potential as a force for good. 
             </p>
             {/* Insert graph of winnings here */}
             <p>
