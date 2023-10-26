@@ -12,12 +12,13 @@
   }
   
   .image {
-    max-width: 70%;
+    max-width: 100%;
+    margin: auto;
     transition: transform 0.3s ease;
   }
   
-  .image-wrapper:hover .image {
-    cursor: crosshair;
+  .image-wrapper:hover .zoom {
+    cursor: zoom-in;
     transform: scale(2);
   }
   

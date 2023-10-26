@@ -10,13 +10,12 @@ const Hoverable = ({ text, children }) => {
 
   const handleMouseEnter = (e) => {
     if (!showBox) {
-      const rect = e.target.getBoundingClientRect();
-      setBoxPosition({ top: rect.top, left: rect.left + rect.width });
+      const rect = e.currentTarget.parentElement.getBoundingClientRect();
+      setBoxPosition({ top: rect.bottom, left: rect.right });
     }
     setShowBox(true);
   };
   
-
   const handleMouseLeave = () => {
     setShowBox(false);
     setKey(Math.random()); // Force re-render by changing key

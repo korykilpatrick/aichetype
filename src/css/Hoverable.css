@@ -15,8 +15,8 @@
     color: black;
   }
   
-  /* .hoverable-wrapper {
+  .hoverable-wrapper {
     position: relative;
-    display: inline-block;
-  } */
+    /* display: inline-block; */
+  }
   

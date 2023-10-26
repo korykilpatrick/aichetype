@@ -13,7 +13,9 @@
     font-family: 'Helvetica Neue', sans-serif;  /* Helvetica was Jobs' favorite */
     font-size: 14px;
     line-height: 1.6;
-    max-width: 200px;  /* Limiting width */
+    max-width: 400px;
+    box-sizing: border-box;
+    width: fit-content;
     min-height: 20px;  /* Setting minimum height */
     white-space: pre-wrap; /* Allow text to wrap */
     overflow-y: auto;  /* Add vertical scrollbar if content overflows */

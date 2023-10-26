@@ -1,8 +1,10 @@
 import React from 'react';
 import '../css/Image.css';
 
-const Image = ({ url, caption }) => {
+const Image = ({ url, caption, zoom = false }) => {
   const handleMouseMove = (e) => {
+    if (!zoom) return;
+
     const { left, top, width, height } = e.target.getBoundingClientRect();
     const x = ((e.clientX - left) / width) * 100;
     const y = ((e.clientY - top) / height) * 100;
@@ -15,11 +17,11 @@ const Image = ({ url, caption }) => {
         <img
           src={url}
           alt={caption}
-          className="image"
+          className={`image ${zoom ? 'zoom' : ''}`}
           onMouseMove={handleMouseMove}
         />
       </div>
-      <p className="caption">{caption}</p>
+      <p className="caption" dangerouslySetInnerHTML={{ __html: caption }}></p>
     </div>
   );
 };

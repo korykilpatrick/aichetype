@@ -7,9 +7,12 @@ const PokerPost = () => {
     return (
         <div className="container">
             <Card.Body>
+                
                 <Card.Title>
                     <h1>My Journey into the World of Poker</h1>
                 </Card.Title>
+                <Image url="https://korykilpatrick-bucket.s3.us-west-1.amazonaws.com/pokerResultsTable.jpg" caption=""/>
+                <Image url="https://korykilpatrick-bucket.s3.us-west-1.amazonaws.com/pokerResultsGraph.jpg" caption="My results since pseudo-retiring in 2017. The green line is actual results, but All-In Adj(usted) is a better indicator of performance." />
                 <Card.Text>
                     <p>In 2003, Chris Moneymaker's stunning victory in the <a href='https://www.wsop.com/'>World Series of Poker</a> set shockwaves across the globe, 
                     demonstrating that even an accountant from Tennessee could rule the poker world. This event defied my 14-year-old self and sparked my interest in poker.</p>
@@ -39,6 +42,7 @@ const PokerPost = () => {
                     the thrill of competing, and the determination to be the best.</p>
                 </Card.Text>
             </Card.Body>
+            
         </div>
     );
 };
