@@ -19,10 +19,11 @@
   },
   "homepage": "https://github.com/korykilpatrick/aichetype#readme",
   "dependencies": {
-    "react-bootstrap": "^2.9.0",
     "axios": "^1.5.1",
     "http-proxy": "^1.18.1",
     "http-proxy-middleware": "^2.0.6",
+    "react-bootstrap": "^2.9.0",
+    "react-markdown": "^9.0.0",
     "react-router-dom": "^6.9.0",
     "react-scripts": "^5.0.1"
   },

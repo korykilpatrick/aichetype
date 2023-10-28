@@ -10,11 +10,11 @@ const Hoverable = ({ text, children }) => {
 
   const handleMouseEnter = (e) => {
     if (!showBox) {
-      const rect = e.currentTarget.parentElement.getBoundingClientRect();
-      setBoxPosition({ top: rect.bottom, left: rect.right });
+      const rect = e.currentTarget.getBoundingClientRect();
+      setBoxPosition({ top: rect.bottom + window.scrollY, left: rect.right + window.scrollX });
     }
     setShowBox(true);
-  };
+  };  
   
   const handleMouseLeave = () => {
     setShowBox(false);

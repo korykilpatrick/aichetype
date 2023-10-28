@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 import '../css/Image.css';
 
 const Image = ({ url, caption, zoom = false }) => {
@@ -21,7 +22,7 @@ const Image = ({ url, caption, zoom = false }) => {
           onMouseMove={handleMouseMove}
         />
       </div>
-      <p className="caption" dangerouslySetInnerHTML={{ __html: caption }}></p>
+      <ReactMarkdown className="caption">{caption}</ReactMarkdown>
     </div>
   );
 };
