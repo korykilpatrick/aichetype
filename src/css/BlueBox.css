@@ -1,6 +1,7 @@
 .blue-box {
     position: absolute;
-    /* background-color: rgba(173, 216, 230, 0.6);  Light blue with a bit of transparency */
+    top: 0;
+    left: 100%;
     background-color:#007acc;
     color: white;
     border: 3px solid #003366;  /* Dark border */
@@ -10,26 +11,29 @@
     transition: opacity 0.3s ease;
     border-radius: 12px;  /* Rounded corners */
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-    font-family: 'Helvetica Neue', sans-serif;  /* Helvetica was Jobs' favorite */
+    font-family: 'Helvetica Neue', sans-serif;
     font-size: 14px;
     line-height: 1.6;
-    max-width: 400px;
     box-sizing: border-box;
-    width: fit-content;
-    min-height: 20px;  /* Setting minimum height */
-    white-space: pre-wrap; /* Allow text to wrap */
+    /* max-width: 1000px; */
+    /* width: auto; */
+    /* min-height: 20px;  Setting minimum height */
+    white-space: pre-wrap;
     overflow-y: auto;  /* Add vertical scrollbar if content overflows */
   }
   
   .blue-box.show {
     opacity: 1;
+    visibility: visible;
   }
   
   .blue-box.hide {
     opacity: 0;
+    visibility: hidden;
   }
   
   .blue-box p {
+    margin: 0;
     opacity: 0;
     transition: opacity 0.5s ease;
   }
