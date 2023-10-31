@@ -1,14 +1,13 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
-import axios from 'axios';
+import { Image } from '../component_utilities';
 
 const PokerPost = () => {
     return (
         <div className="container">
             <Card.Body>
                 <Card.Title>
-                    <h1>My Journey into the World of Poker</h1>
+                    <h1>Chatper 1: Poker</h1>
                 </Card.Title>
                 <Image url="https://korykilpatrick-bucket.s3.us-west-1.amazonaws.com/pokerResultsTable.jpg" caption="" zoom={true}/>
                 <Image url="https://korykilpatrick-bucket.s3.us-west-1.amazonaws.com/pokerResultsGraph.jpg" caption="My results since pseudo-retiring in 2017. The green line is actual results, but All-In Adj(usted) is a better indicator of performance." zoom={true} />

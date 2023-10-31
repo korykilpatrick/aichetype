@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../../css/Resume.css';
+import { Hoverable } from '../component_utilities';
 
 const ResumePost = () => {
   return (
@@ -14,7 +15,7 @@ const ResumePost = () => {
               <Card.Text>
                 Oct 2019 - Dec 2021 · 2 yrs 3 mos
                 <ul>
-                  <li>Built a B2B SaaS company that provides end-to-end services for clients in a niche high-frequency trading market.</li>
+                  <li>Built a <Hoverable text='dsgasdlgkhd lksahdglksh alshkdg lksh lkashdg lkhs lkashdg lh lsakdhg klhas gd lhkasdg klhas ldgkh lsakh lkahsdg lkhasgl khsadg lkhasg lkhsdgal khgslhk'>dogg</Hoverable>B2B SaaS company that provides end-to-end services for clients in a niche high-frequency trading market.</li>
                   <li>Worked on every facet of a full-stack software product responsible for nearly $1B in trades in its first 2.5 years.</li>
                   <li>Led all aspects of developing a new business.</li>
                   <li>Established and developed client relationships.</li>

@@ -19,7 +19,7 @@ const LazyComponent = (componentName) => {
 const App = () => {
   return (
     <Router>
-      <div className="container">
+      <div className="app-container">
         <header>
           {/* <h1 className="title"><Link to="/">AIchetype</Link></h1> */}
           {/*<h2 className="subtitle">Kory's Adventures in AI & Tech</h2>*/}

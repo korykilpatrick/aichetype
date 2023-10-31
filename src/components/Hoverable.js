@@ -7,18 +7,22 @@ const Hoverable = ({ text, children }) => {
   const [boxPosition, setBoxPosition] = useState({ top: 0, left: 0 });
   const [key, setKey] = useState(Math.random()); // New state for forcing re-render
   // forcing re-render because it resets some css styling fuckery
-
+  let hoverTimeout;
   const handleMouseEnter = (e) => {
-    if (!showBox) {
-      const rect = e.currentTarget.getBoundingClientRect();
-      setBoxPosition({ top: rect.bottom + window.scrollY, left: rect.right + window.scrollX });
-    }
+    clearTimeout(hoverTimeout);
+
+    // if (!showBox) {
+    //   const rect = e.currentTarget.getBoundingClientRect();
+    //   setBoxPosition({ top: rect.top + window.scrollY, left: rect.right + window.scrollX });
+    // }
     setShowBox(true);
   };  
   
   const handleMouseLeave = () => {
-    setShowBox(false);
-    setKey(Math.random()); // Force re-render by changing key
+    hoverTimeout = setTimeout(() => {
+      setShowBox(false);
+      setKey(Math.random()); // Force re-render by changing key
+    }, 100); // 300 milliseconds delay
   };
 
   return (
