@@ -11,8 +11,9 @@ const BlueBox = ({ content, position, show, onMouseEnter, onMouseLeave }) => {
      style={{ width: boxWidth }}
      onMouseEnter={onMouseEnter}
      onMouseLeave={onMouseLeave}
+     dangerouslySetInnerHTML={{ __html: content }}
     >
-      <ReactMarkdown>{content}</ReactMarkdown>
+      {/* <ReactMarkdown>{content}</ReactMarkdown> */}
     </div>
 
   );

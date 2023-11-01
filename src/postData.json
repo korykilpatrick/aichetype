@@ -12,9 +12,9 @@
       "tags": ["work", "poker", "my story", "gambling"]
     },
     {
-      "name": "DFS",
+      "name": "SportsAnalytics",
       "component": "DFSPost",
-      "endpoint": "dfs",
+      "endpoint": "sportsanalytics",
       "tags": ["work", "gambling"]
     },
     {

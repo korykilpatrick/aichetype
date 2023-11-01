@@ -22,7 +22,8 @@ const Image = ({ url, caption, zoom = false }) => {
           onMouseMove={handleMouseMove}
         />
       </div>
-      <ReactMarkdown className="caption">{caption}</ReactMarkdown>
+      {/* <ReactMarkdown className="caption">{caption}</ReactMarkdown> */}
+      <p className="caption" dangerouslySetInnerHTML={{ __html: caption }}></p>
     </div>
   );
 };

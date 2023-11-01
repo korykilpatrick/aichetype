@@ -1,23 +1,30 @@
 import React from 'react';
 import { Container, Row, Col, ListGroup, Card, Button } from 'react-bootstrap';
 import "../../css/Projects.css";
+import { Hoverable, Image } from '../component_utilities';
 
 const DFSPost = () => {
   return (
     <Container>
       <Row className="mb-4">
         <Col>
-          <p>This project was developed by me, with the algorithms being designed in collaboration with a team of professional Daily Fantasy Sports (DFS) bettors.</p>
+          <p>There is an abundance of demand and opportunity for engineering in the professional gambling world. The following projects were built in collaboration with friends who are professional sports bettors. I wrote the code, they provided the domain expertise, and together we applied game theory and investing principles to develop the algorithms.</p>
+        </Col>
+      </Row>
+      <Row className="mb-4">
+        <Col>
+          <hr style={{borderTop: '3px solid #bbb'}} />
+          <h2>Daily Fantasy Sports <Hoverable text="DFS is essentially a game where you can bet on how well athletes perform over a given time frame (typically 1 day). <a href='https://www.draftkings.com' target='_blank'>Draftkings</a> and <a href='https://www.fanduel.com' target='_blank'>Fanduel</a> are the most popular DFS platforms. For more, you can read <a href='https://www.dailyfantasysports101.com/basics/' target='_blank'>here</a>.">(DFS)</Hoverable> Analytics</h2>
         </Col>
       </Row>
       <Row className="mb-4">
         <Col>
           <h3>Problem ❗</h3>
           <ListGroup variant="flush">
-            <ListGroup.Item>Competitive Edge: Game theory proficiency is my partners' key advantage.</ListGroup.Item>
-            <ListGroup.Item>Current Limitations: No available rules-based engine robustly captures game theory nuances.</ListGroup.Item>
-            <ListGroup.Item>Workflow: Existing process was manual (and thus error-prone and limited in scale) and lacking in insights provided by advanced data analysis.</ListGroup.Item>
-            <ListGroup.Item>Impact: Either smaller stakes are skipped, or suboptimal lineups are played, reducing profits.</ListGroup.Item>
+            <ListGroup.Item><em>Competitive Edge</em>: Game theory proficiency</ListGroup.Item>
+            <ListGroup.Item><em>Current Limitations</em>: No available rules-based lineup-generation engine robustly captures game theory nuance</ListGroup.Item>
+            <ListGroup.Item><em>Workflow</em>: Existing process was <Hoverable text="Thus error prone and limited in scale">manual</Hoverable> and lacking in insights provided by advanced data analysis</ListGroup.Item>
+            <ListGroup.Item><em>Impact</em>: Either smaller stakes are skipped, or suboptimal lineups are played, reducing profits</ListGroup.Item>
           </ListGroup>
         </Col>
       </Row>
@@ -26,16 +33,20 @@ const DFSPost = () => {
         <Col>
           <h3>Target 🎯</h3>
           <ListGroup variant="flush">
-            <ListGroup.Item>Goal: Automate game theory application with a plugin for the existing rules engine.</ListGroup.Item>
-            <ListGroup.Item>Input:
+            <ListGroup.Item><em>Goal</em>: Automate game theory application with a plugin for the existing rules engine</ListGroup.Item>
+            <ListGroup.Item><em>Input</em>:
               <ul>
-                <li>N lineups (typically 3 * max entries)</li>
-                <li>Contest data from DFS sites</li>
+                <li><em>N</em> engine-generated lineup <Hoverable text="Where _N_ is typically 3 * max_entries.">candidates</Hoverable></li>
+                <li>Contest data from DFS <Hoverable text="Most saliently: buyin, payout structure, field size, and player pricing.">sites</Hoverable></li>
                 <li>Private player rankings and data</li>
               </ul>
             </ListGroup.Item>
-            <ListGroup.Item>Output: N lineups with proprietary, filterable metadata</ListGroup.Item>
-            <ListGroup.Item>Constraints:
+            <ListGroup.Item><em>Output</em>: 
+              <ul>
+                <li><em>N</em> lineup candidates with proprietary, filterable, algorithmically-generated metadata</li>
+              </ul>
+            </ListGroup.Item>
+            <ListGroup.Item><em>Constraints</em>:
               <ul>
                 <li>UI: Google Sheets</li>
                 <li>Real-time updates needed up to final seconds</li>
@@ -48,48 +59,76 @@ const DFSPost = () => {
       <Row className="mb-4">
         <Col>
           <h3>Solution ✅</h3>
-          <ListGroup variant="flush">
-            <ListGroup.Item>Devised proprietary metadata algorithms for lineup candidates.</ListGroup.Item>
-            <ListGroup.Item>Implemented these algorithms in Python.</ListGroup.Item>
-            <ListGroup.Item>Utilized Google Sheets API for a Python-based UI.</ListGroup.Item>
-          </ListGroup>
+            <ul>
+            <li>Devised proprietary metadata algorithms for lineup candidates</li>
+            <li>Implemented these algorithms in Python</li>
+            <li>Utilized Google Sheets API for a Python-based UI</li>
+            </ul>
         </Col>
       </Row>
 
       <Row className="mb-4">
         <Col>
           <h3>Results 💰</h3>
+          <Row className="mb-4">
+            <p>
+
+            </p>
+          </Row>
           <ListGroup variant="flush">
-            <ListGroup.Item>Generated ~$250K profit in the first season, aligning with our estimated expected value.</ListGroup.Item>
-            <ListGroup.Item>Insert Image</ListGroup.Item>
+            <ListGroup.Item><Image url="https://korykilpatrick-bucket.s3.us-west-1.amazonaws.com/Draftkings+profit.png" caption="Draftkings results through the first 1.25 NFL seasons."></Image></ListGroup.Item>
           </ListGroup>
         </Col>
       </Row>
-      <br />------------------------------<br />
-      <Card className="mx-auto mt-5" style={{ maxWidth: '800px' }}>
-      <Card.Body>
-        <Card.Title>
-          <h2>Translating Sports Betting Strategies into Code: My Experience in 2022</h2>
-        </Card.Title>
-        <Card.Text>
-          A while back, a fellow poker player and one of the <a href="https://en.wikipedia.org/wiki/Daily_fantasy_sports">daily fantasy sports</a> giants asked for my help to refine his betting algorithm, seeing the potential of software enhancements in his workflow. So, I took this opportunity to utilize my programming skills in a different yet exciting domain.
-          <br /><br />
-          The unique challenge of this project was the flexibility it demanded due to the ever-evolving nature of daily fantasy sports. Not only did the parameters change, but so did the techniques deployed, varying from week to week, and even contest to contest. This required an agile approach, necessitating rapid development and iteration of new algorithms.
-          <br /><br />
-          My role involved synergizing game theory expertise with my colleagues’ to devise innovative strategies and then programming these algorithms. I was also responsible for providing a user interface for them to interact with the resulting data. The work was a mix of deep data dives, data science analysis, and programmatic execution of game theory algorithms.
-          <br /><br />
-          The input was primarily player projections and other sports data, with the output being betting strategies for various contests. Being prepared for everything sports data had to throw at us was quintessential to our work.
-          <br /><br />
-          My colleagues, who are well-versed in game theory and the National Football League (NFL), provided the necessary domain expertise. They researched extensively on NFL players and offered valuable insights, thus creating appropriate contexts for our work.
-          <br /><br />
-          Our collaboration led to the development of novel algorithms that we used to strategize our game plays. The output from these algorithms determined where we would place our investments in the contests.
-        </Card.Text>
-        {/* <div className="text-center mt-4">
-          <Button variant="primary">Read More</Button>
-        </div> */}
-      </Card.Body>
-    </Card>
+      <Row className="mb-4">
+        <Col>
+          <hr style={{borderTop: '3px solid #bbb'}} />
+          <h2>NBA Shotluck</h2>
+        </Col>
+      </Row>
+    <Row className="mb-4">
+        <Col>
+          <h3>Problem ❗</h3>
+          <ListGroup variant="flush">
+            <ListGroup.Item><em>Competitive Edge</em>: Placeholder</ListGroup.Item>
+            <ListGroup.Item><em>Current Limitations</em>: Placeholder</ListGroup.Item>
+            <ListGroup.Item><em>Workflow</em>: Placeholder</ListGroup.Item>
+            <ListGroup.Item><em>Impact</em>: Placeholder</ListGroup.Item>
+          </ListGroup>
+        </Col>
+      </Row>
 
+      <Row className="mb-4">
+        <Col>
+          <h3>Target 🎯</h3>
+          <ListGroup variant="flush">
+            <ListGroup.Item><em>Goal</em>: Placeholder</ListGroup.Item>
+            <ListGroup.Item><em>Input</em>: Placeholder</ListGroup.Item>
+            <ListGroup.Item><em>Output</em>: Placeholder</ListGroup.Item>
+            <ListGroup.Item><em>Constraints</em>: Placeholder</ListGroup.Item>
+          </ListGroup>
+        </Col>
+      </Row>
+
+      <Row className="mb-4">
+        <Col>
+          <h3>Solution ✅</h3>
+          <ul>
+            <li>Placeholder</li>
+            <li>Placeholder</li>
+            <li>Placeholder</li>
+          </ul>
+        </Col>
+      </Row>
+
+      <Row className="mb-4">
+        <Col>
+          <h3>New Project: Results 💰</h3>
+          <ListGroup variant="flush">
+            <ListGroup.Item><Image url="https://example.com/image.png" caption="Placeholder caption"></Image></ListGroup.Item>
+          </ListGroup>
+        </Col>
+      </Row>
     </Container>
   );
 };
