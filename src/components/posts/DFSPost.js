@@ -71,7 +71,7 @@ const DFSPost = () => {
       <Image url="https://korykilpatrick-bucket.s3.us-west-1.amazonaws.com/dfs_lookback.png" caption="An example post-contest analysis. By analyzing the publicly-available contest results we gleaned insights into how our opponents played and how our algorithms evaluated the winning lineups, which helped us iterate." zoom={true} />
       <Row className="mb-4">
         <Col>
-          <h3>Results 💰</h3>
+          <h3>Results 📈</h3>
           <Row className="mb-4">
             <p>
               Success! I don't have access to historical records to compare <Hoverable text="And variance in this space is so high that it would only be moderately useful">against,</Hoverable> but in the first season we achived a ~25% ROI on ~$1m in volume, which is roughly in line with our projected expected value.
@@ -114,14 +114,14 @@ const DFSPost = () => {
           
           <ul>
             <li>Used <a href="https://github.com/swar/nba_api" target="blank">NBA API</a> to access and save historical player data</li>
-            <li>Developed luck-adjusted algorithm using my partner's expertise and historical data</li>
+            <li>Developed luck-adjusted algorithm using my partner's expertise + historical data</li>
             <li>Used NBA API to poll for and save real-time game data</li>
             <li>Built messenger interface that allowed for partner to request luck-adjusted score for a game</li>
             <li>Used Python, MySQL, AWS, <a href="https://github.com/python-telegram-bot/python-telegram-bot">Telegram API</a> (frontend)</li> 
           </ul>
         </Col>
       </Row>
-      <Image url="https://korykilpatrick-bucket.s3.us-west-1.amazonaws.com/shotluck_bot.png" caption="The Telegram bot interface. My partner can request the luck-adjusted score for any game, and the bot will respond with the actual score and the luck-adjusted score."></Image>
+      <Image url="https://korykilpatrick-bucket.s3.us-west-1.amazonaws.com/shotluck_bot.png" caption="The Telegram bot interface. My partner can request the luck-adjusted score for any game, and the bot will respond with the actual score and our computed luck-adjusted score."></Image>
 
       <Row className="mb-4">
         <Col>
