@@ -8,7 +8,7 @@ const DFSPost = () => {
     <Container>
       <Row className="mb-4">
         <Col>
-          <p>There is an abundance of demand and opportunity for engineering in the professional gambling world. The following projects were built in collaboration with friends who are professional sports bettors. I wrote the code, they provided the domain expertise, and together we applied game theory and investing principles to develop the algorithms.</p>
+          <p>There is an abundance of demand for software engineering in the professional gambling world. The following projects were built in collaboration with friends who are professional sports bettors. I wrote the code, they provided the domain expertise, and together we applied game theory and investing principles to develop the algorithms.</p>
         </Col>
       </Row>
       <Row className="mb-4">
