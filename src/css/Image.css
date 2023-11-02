@@ -7,8 +7,11 @@
   .image-wrapper {
     overflow: hidden;
     position: relative;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* size: 50%; */
   }
   
   .image {
@@ -19,7 +22,7 @@
   
   .image-wrapper:hover .zoom {
     cursor: zoom-in;
-    transform: scale(2);
+    transform: scale(3);
   }
   
   .caption {

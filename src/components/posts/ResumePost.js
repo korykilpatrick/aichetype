@@ -49,7 +49,7 @@ const ResumePost = () => {
         <Col>
           <Card>
             <Card.Body>
-              <Card.Title><Link to='/sportsanalytics'>Sports Analytics and Betting Engineer</Link> <Hoverable text="I'm unfamiliar with job titles. I described my work to ChatGPT and this is what it suggested."></Hoverable></Card.Title>
+              <Card.Title><Link to='/sportsanalytics'>Sports Analytics and Betting Engineer</Link> <Hoverable text="I'm unfamiliar with job titles. I described my work to ChatGPT and this is what it suggested haha"></Hoverable></Card.Title>
               <Card.Text>
                 2022 - 
                 <ul>
