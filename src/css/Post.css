@@ -1,0 +1,35 @@
+.post-title {
+    font-size: 2rem; /* Large font for prominence */
+    margin-top: 1rem; /* Space above the title */
+    margin-bottom: 1rem; /* Space below the title */
+    text-align: center; /* Center the title */
+    font-weight: bold; /* Make it bold to stand out */
+    color: #333; /* Dark color for readability */
+    line-height: 1.2; /* Adjust line height for better readability */
+    letter-spacing: -0.5px; /* Subtle adjustment to letter spacing can make it more elegant */
+    word-spacing: 1px; /* Adjust word spacing for better readability */
+    font-family: 'Georgia', serif; /* Font that suits your blog's style */
+    max-width: 800px; /* Optional: constrain the title width for better control */
+    margin-left: auto; /* Auto margins for horizontal centering */
+    margin-right: auto;
+    padding: 20px 0; /* Padding to add some space around the text */
+    border-bottom: 1px solid #eee; /* Optional: a line under the title to separate it from the content */
+  }
+
+  .internal-link {
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #333;
+  }
+
+  .video {
+    position: relative;
+    padding-bottom: 62.5%;
+    height: 0;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
+  }

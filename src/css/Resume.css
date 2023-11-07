@@ -11,4 +11,22 @@
   .job-card {
     margin-bottom: 1rem;
   }
+
+  .work-dates {
+    font-size: .8rem;
+    font-style: italic;
+    color: gray;
+  }
+/*   
+  ul.poker {
+    list-style-type: none; 
+    padding: 0;
+  }
   
+  ul.poker li::before {
+    content: '🚀'; 
+    margin-right: 10px;
+  }
+  
+  
+   */

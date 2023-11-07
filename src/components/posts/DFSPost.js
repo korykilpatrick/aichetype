@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, ListGroup, Card, Button } from 'react-bootstrap';
-import "../../css/Projects.css";
+import "../../css/Post.css";
 import { Hoverable, Image } from '../component_utilities';
 
 const DFSPost = () => {
@@ -8,13 +8,13 @@ const DFSPost = () => {
     <Container>
       <Row className="mb-4">
         <Col>
-          <p>There is an abundance of demand for software engineering in the professional gambling world. The following projects were built in collaboration with friends who are professional sports bettors. I wrote the code, they provided the domain expertise, and together we applied game theory and investing principles to develop the algorithms.</p>
         </Col>
+          <p>There is an abundance of demand for software engineering in the professional gambling world. The following projects were built in collaboration with friends who are professional sports bettors. I wrote the code, they provided the domain expertise, and together we applied game theory and investing principles to develop the algorithms.</p>
       </Row>
       <Row className="mb-4">
         <Col>
           <hr style={{borderTop: '3px solid #bbb'}} />
-          <h2>Daily Fantasy Sports <Hoverable text="DFS is essentially a game where you can bet on how well athletes perform over a given time frame (typically 1 day). <a href='https://www.draftkings.com' target='_blank'>Draftkings</a> and <a href='https://www.fanduel.com' target='_blank'>Fanduel</a> are the most popular DFS platforms. For more, you can read <a href='https://www.dailyfantasysports101.com/basics/' target='_blank'>here</a>.">(DFS)</Hoverable> Analytics</h2>
+          <h2 className='post-title'>Daily Fantasy Sports <Hoverable text="DFS is essentially a game where you can bet on how well athletes perform over a given time frame (typically 1 day). <a href='https://www.draftkings.com' target='_blank'>Draftkings</a> and <a href='https://www.fanduel.com' target='_blank'>Fanduel</a> are the most popular DFS platforms. For more, you can read <a href='https://www.dailyfantasysports101.com/basics/' target='_blank'>here</a>.">(DFS)</Hoverable> Analytics</h2>
         </Col>
       </Row>
       <Row className="mb-4">
@@ -61,7 +61,7 @@ const DFSPost = () => {
           <h3>Solution ✅</h3>
             <ul>
             <li>Devised proprietary metadata algorithms for lineup candidates</li>
-            <li>Implemented these algorithms in Python</li>
+            <li>Implemented algorithms in Python</li>
             <li>Used Google Sheets API to provide Python-based UI with real-time updates</li>
             <li>Additionally, added support for post-contest data analysis</li>
             </ul>
@@ -74,7 +74,7 @@ const DFSPost = () => {
           <h3>Results 📈</h3>
           <Row className="mb-4">
             <p>
-              Success! I don't have access to historical records to compare <Hoverable text="And variance in this space is so high that it would only be moderately useful">against,</Hoverable> but in the first season we achived a ~25% ROI on ~$1m in volume, which is roughly in line with our projected expected value.
+              Success! I don't have access to historical records to compare <Hoverable text="My partners aren't the best record keepers, and variance in this space is so high that it would only be moderately useful">against,</Hoverable> but in the first season we achived a ~25% ROI on ~$1m in volume, which is roughly in line with our projected expected value.
             </p>
           </Row>
           <ListGroup variant="flush">
@@ -85,12 +85,13 @@ const DFSPost = () => {
       <Row className="mb-4">
         <Col>
           <hr style={{borderTop: '3px solid #bbb'}} />
-          <h2>NBA Shotluck</h2>
+          <h2 className='post-title'>NBA Shotluck</h2>
           <p>
             An NBA betting expert friend came to me with an idea for a betting tool. He designed the algorithm and I implemented everything.
           </p>
         </Col>
       </Row>
+      <Image url="https://korykilpatrick-bucket.s3.us-west-1.amazonaws.com/shotluck_bot.png" caption="The Telegram bot interface. My partner can request the luck-adjusted score for any game, and the bot will respond with the actual score and our computed luck-adjusted score."></Image>
     <Row className="mb-4">
         <Col>
           <h3>Problem ❗</h3>
@@ -102,12 +103,12 @@ const DFSPost = () => {
       <Row className="mb-4">
         <Col>
           <h3>Target 🎯</h3>
-          <p>
-            A tool that provides real-time luck-adjusted scores to NBA games.
-          </p>
+          <ul>
+            <li>Flexible implementation of an algorithm that combines historical data and proprietary insights to generate a shotluck-adjusted score</li>
+            <li>Messenger UI with easy real-time data retrieval</li>
+          </ul>
         </Col>
       </Row>
-
       <Row className="mb-4">
         <Col>
           <h3>Solution ✅</h3>
@@ -121,7 +122,7 @@ const DFSPost = () => {
           </ul>
         </Col>
       </Row>
-      <Image url="https://korykilpatrick-bucket.s3.us-west-1.amazonaws.com/shotluck_bot.png" caption="The Telegram bot interface. My partner can request the luck-adjusted score for any game, and the bot will respond with the actual score and our computed luck-adjusted score."></Image>
+      <Image url="https://korykilpatrick-bucket.s3.us-west-1.amazonaws.com/shotluck_loop.png" caption="The main loop that runs during NBA games. It polls for game updates, saving snapshots of game states to the database, where my partners can access them via the messenger UI."></Image>
 
       <Row className="mb-4">
         <Col>
