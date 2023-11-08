@@ -1,3 +1,32 @@
+
+.collapsible-header {
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin: 10px 0;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.collapsible-header::after {
+  content: '▼'; /* Downward arrow, changes when section is open */
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.collapsible-header.active::after {
+  transform: rotate(180deg); /* Flips the arrow when section is open */
+}
+
+.section-content {
+  padding: 0 15px;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
 /* .application-page {
     max-width: 800px;
     margin: 0 auto;

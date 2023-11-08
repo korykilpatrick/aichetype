@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 import HomePage from './components/HomePage';
-import NeuralinkApplication from './components/NeuralinkApplication';
+import Neuralink from './components/Neuralink';
 import About from './components/About';
 import Projects from './components/Projects';
 import ProjectDetail from './components/ProjectDetails';
@@ -30,8 +30,8 @@ const App = () => {
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             {/* <Route path="/" element={<HomePage />} /> */}
-            <Route path="/" element={<NeuralinkApplication />} />
-            <Route path="/neuralink" element={<NeuralinkApplication />} />
+            <Route path="/" element={<Neuralink />} />
+            <Route path="/neuralink" element={<Neuralink />} />
             <Route path="/work" element={<Work />} />
             {postData.map((post, index) => (
               <Route
