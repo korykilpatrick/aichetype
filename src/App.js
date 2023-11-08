@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 import HomePage from './components/HomePage';
+import NeuralinkApplication from './components/NeuralinkApplication';
 import About from './components/About';
 import Projects from './components/Projects';
 import ProjectDetail from './components/ProjectDetails';
@@ -28,9 +29,10 @@ const App = () => {
         <Navbar />
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            {/* <Route path="/" element={<HomePage />} /> */}
+            <Route path="/" element={<NeuralinkApplication />} />
+            <Route path="/neuralink" element={<NeuralinkApplication />} />
             <Route path="/work" element={<Work />} />
-            {/* <Route path="/projects" element={<Projects />} /> */}
             {postData.map((post, index) => (
               <Route
                 key={index}
@@ -46,7 +48,7 @@ const App = () => {
         {/* <ContactInfo /> */}
         <footer className='footer'>
           {/* <p>All text licensed under the <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">Creative Commons Attribution-NonCommercial 4.0 International License</a></p> */}
-          <p>All text licensed under the Umm I'll Figure This Out If And When I Need To license.</p>
+          <p>All text licensed under the <em>I'll Figure This Out If And When I Need To</em> license.</p>
         </footer>
       </div>
     </Router>
