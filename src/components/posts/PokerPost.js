@@ -10,6 +10,9 @@ const PokerPost = () => {
                 <Card.Title>
                     <h2 className='post-title'>Poker</h2>
                 </Card.Title>
+                {/* <p>
+                    I don't know if you give a shit about poker, but heres a video of me playing while talking about my history and approach in becoming one of the best in the world.
+                </p> */}
                 <div className='video'>
                     <iframe 
                         src="https://www.loom.com/embed/b44eb7ede50640b098df1772fa99cdbb?sid=3557c6e7-4500-43dc-8cfa-44bcb1de674d" 
@@ -20,7 +23,7 @@ const PokerPost = () => {
                 </div>
                 <Card.Text>
                     <p>
-                        That ended up being much longer than I was planning! The first half is just me rambling about my history with poker. At 31:42 I get into an interesting hand, then spend the rest of the video providing a high-level overview of <Hoverable text="while getting interrupted to play some big pots!">it,</Hoverable> giving insight into how I think about the game.
+                        That ended up being much longer than I was planning! The first half is just me rambling about my history with poker. At 31:42 I get into an interesting hand, then spend the rest of the video providing a high-level overview of <Hoverable text="while getting interrupted to play some big pots!">it,</Hoverable> giving insight into how I think about the game and its complexities.
                     </p>
                 </Card.Text>
                 <Image url="https://korykilpatrick-bucket.s3.us-west-1.amazonaws.com/pokerResultsTable.jpg" caption="" zoom={true}/>

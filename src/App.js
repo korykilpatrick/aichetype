@@ -19,16 +19,16 @@ const LazyComponent = (componentName) => {
 const App = () => {
   return (
     <Router>
+    <header>
+      <Link to="/">
+        <img src="https://korykilpatrick-bucket.s3.us-west-1.amazonaws.com/numinousloop.png" alt="Home" className="home-button"/>
+      </Link>
+    </header>
       <div className="app-container">
-        <header>
-          {/* <h1 className="title"><Link to="/">AIchetype</Link></h1> */}
-          {/*<h2 className="subtitle">Kory's Adventures in AI & Tech</h2>*/}
-        </header>
         <Navbar />
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
-            {/* <Route path="/" element={<HomePage />} /> */}
-            <Route path="/" element={<Bookshelf />} />
+            <Route path="/" element={<HomePage />} />
             <Route path="/work" element={<Work />} />
             {/* <Route path="/projects" element={<Projects />} /> */}
             {postData.map((post, index) => (
@@ -45,7 +45,8 @@ const App = () => {
         </Suspense>
         {/* <ContactInfo /> */}
         <footer className='footer'>
-          <p>All text licensed under the <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">Creative Commons Attribution-NonCommercial 4.0 International License</a></p>
+          {/* <p>All text licensed under the <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">Creative Commons Attribution-NonCommercial 4.0 International License</a></p> */}
+          <p>All text licensed under the Umm I'll Figure This Out If And When I Need To license.</p>
         </footer>
       </div>
     </Router>

@@ -16,8 +16,8 @@
     border-bottom: 1px solid #eee; /* Optional: a line under the title to separate it from the content */
   }
 
-  .internal-link {
-    color: #333;
+  .internal-link, .internal-link:visited {
+    color: #708090;
     text-decoration: none;
     border-bottom: 1px solid #333;
   }
