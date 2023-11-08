@@ -13,6 +13,9 @@ const Navbar = () => {
         <Link to="/links">Links</Link>
       </li> */}
       <li>
+        <Link to="/neuralink">Neuralink</Link>
+      </li>
+      <li>
         <Link to="/work">Work</Link>
       </li>
         <li>
