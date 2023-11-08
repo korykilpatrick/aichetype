@@ -10,9 +10,9 @@ const PokerPost = () => {
                 <Card.Title>
                     <h2 className='post-title'>Poker</h2>
                 </Card.Title>
-                {/* <p>
-                    I don't know if you give a shit about poker, but heres a video of me playing while talking about my history and approach in becoming one of the best in the world.
-                </p> */}
+                <p>
+                    I'm assuming Neuralink doesn't care much about the particulars of my poker career other than it being a proof of concept of competency. In case I'm misguided about that, I recorded a video of me playing a $2000 buy-in poker game and talking a bit about my history with the game. Below you will also find a database and graph of my results from playing sporadically since 2017.
+                </p>
                 <div className='video'>
                     <iframe 
                         src="https://www.loom.com/embed/b44eb7ede50640b098df1772fa99cdbb?sid=3557c6e7-4500-43dc-8cfa-44bcb1de674d" 
