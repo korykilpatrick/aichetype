@@ -1,5 +1,5 @@
 import os
-
+import env
 class Config(object):
     DEBUG = False
     TESTING = False
@@ -14,8 +14,8 @@ class ProductionConfig(Config):
 class TestingConfig(Config):
     TESTING = True
 
-DB_NAME = "numinousloop"
-DB_USER = "numinousloop"
-DB_PASSWORD = "plumbus"
-DB_HOST = "localhost"
-DB_PORT = "5432"
+DB_NAME = env.DB_NAME
+DB_USER = env.DB_USER
+DB_PASSWORD = env.DB_PASSWORD
+DB_HOST = env.DB_HOST
+DB_PORT = env.DB_PORT
