@@ -8,10 +8,10 @@ const PokerPost = () => {
         <div className="container">
             <Card.Body>
                 <Card.Title>
-                    <h2 className='post-title'>Poker</h2>
+                    <h2 className='post-title'>♠️♥️ Poker ♦️♣️</h2>
                 </Card.Title>
                 <p>
-                    I'm assuming Neuralink doesn't care much about the particulars of my poker career other than it being a proof of concept of competency. In case I'm misguided about that, I recorded a video of me playing a $2000 buy-in poker game and talking a bit about my history with the game. Below you will also find a database and graph of my results from playing sporadically since 2017.
+                    I'm assuming Neuralink doesn't care much about the particulars of my poker career other than it being a proof of concept of <em>some kind of</em> competency. In case I'm misguided about that, I recorded a video of myself playing a $2000 buy-in poker game while discussing my history with the game and some strategy. Below you will also find a database and graph of my results from playing sporadically since 2017. Finally, I included some links to my results from publicly tracked games<Hoverable text="most of the games I played in my career were not publicly tracked. This had the perk of my results not scaring away competition, but the drawback that I don't have enough data to speak definitively about e.g. where I fit into online poker history."></Hoverable> in my career, as well as an article written about me as the World Series of Poker this summer.
                 </p>
                 <div className='video'>
                     <iframe 
@@ -31,6 +31,12 @@ const PokerPost = () => {
                 <Card.Text>
                    <p></p>
                 </Card.Text>
+                <h3>Links</h3>
+                <ul>
+                    <li><a href="https://pokerdb.thehendonmob.com/player.php?a=r&n=200526" target="_blank">Live tournament results</a></li>
+                    <li><a href="https://contents.pokerstake.com/profiles/s00tedj0kers/" target="_blank">Online tournament results (partial)</a></li>
+                    <li><a href="https://www.poker.org/kory-kilpatrick-was-a-class-act-after-brutal-wsop-feature-table-beat/" target="_blank"><em>Kory Kilpatrick was a class act after brutal WSOP feature table beat</em></a></li>
+                </ul>
             </Card.Body>
             
         </div>

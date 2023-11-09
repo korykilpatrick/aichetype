@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../css/NeuralinkApplication.css';
+import '../css/Post.css';
 import { Link } from 'react-router-dom';
 import { Hoverable } from './component_utilities';
 
@@ -23,7 +24,7 @@ const NeuralinkApplication = () => {
           <ul>
             <li>
               <strong>You find large challenges exciting and enjoy discovering and defining problems as much as solving them.</strong> 
-              <p>When I was 17 I told my parents in complete earnest that I was going to be one of the best poker players in the world one day. At the time online poker was incredibly new, and nobody thought you could make a living doing <Hoverable text="probably because nobody ever had!">it.</Hoverable> A small group of people from all corners of the globe congregated in an online forum, where we explored and <Link to="/poker" className='internal-link'>conquered</Link> these uncharted waters.</p>
+              <p>When I was 17 I told my parents in complete earnest that I was going to be one of the best poker players in the world one day. At the time online poker was incredibly new, and nobody thought you could make a living doing it. I found a small group of fellow enthusiasts from all corners of the globe congregating in an online forum, where we went on to explore and <Link to="/poker" className='internal-link'>conquer</Link> these uncharted waters.</p>
               <p>
                 In 2019, despite having no significant programming experience beyond standard coursework and study, I assured a longtime colleague that two friends and I could build a better software product than the one he was using to run his business that executes $100 million per year in trades. Within a year <Link to="/betterdata" className='internal-link'>we did</Link> just that.
               </p>
@@ -133,9 +134,10 @@ const NeuralinkApplication = () => {
           {openSection.andMore && (
           // <p>Familiarity with AI techniques</p>
           <ul>
-            <li>Completed most exercises from Sutton/Barto's Reinforcement Learning book.</li>
-            <li>Implemented Counterfactual Regret Minimization on small <a href='https://github.com/korykilpatrick/ai' target='_blank'>games</a></li>
-            <li>Completed most exercises from <a href="https://github.com/korykilpatrick/fastbook" target='_blank'>FastAI book</a></li>
+            <li>Implemented most exercises from Sutton/Barto's Reinforcement Learning book.</li>
+            <li><a href='https://github.com/korykilpatrick/ai' target='_blank'>Implemented</a> Counterfactual Regret Minimization on small games</li>
+            <li><a href="https://github.com/korykilpatrick/fastbook" target='_blank'>Implemented</a> most exercises from FastAI book</li>
+            <li><a href="https://courses.edx.org/certificates/aa7d4e88285f4f85a6cbe2086ece2ffe?_gl=1*1ax0pfw*_ga*MTk2NTY5NDAzNS4xNjk5NTY2MTk2*_ga_D3KS4KMDT0*MTY5OTU2NjE5Ni4xLjEuMTY5OTU2NjI4OS4zMC4wLjA" target="_blank">Completed</a> a HarvardX program on Neuroscience <Hoverable text="This is my idea of fun 🤘">Fundamentals</Hoverable> </li>
           </ul>
           )}
         </section>

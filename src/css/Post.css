@@ -37,8 +37,8 @@
   .collapsible-header {
     cursor: pointer;
     font-size: 1.5rem;
-    margin: 10px 0;
-    padding: 10px;
+    /* margin: 10px 0;
+    padding: 10px; */
     border-bottom: 1px solid #ddd;
     display: flex;
     justify-content: space-between;
