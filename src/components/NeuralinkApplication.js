@@ -17,7 +17,7 @@ const NeuralinkApplication = () => {
     return (
       <div>
         {/* <h1 className="page-title">Neuralink Internship Application</h1> */}
-        <p></p>
+        <p><em>Below I directly respond to the listed qualifications for the Software Engineering Internship</em></p>
         <section>
           <h2 onClick={() => toggleSection('aboutYou')} className={`collapsible-header ${openSection.aboutYou ? 'active' : ''}`}>About you</h2>
           {openSection.aboutYou && (

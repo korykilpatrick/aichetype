@@ -48,7 +48,7 @@ const App = () => {
         {/* <ContactInfo /> */}
         <footer className='footer'>
           {/* <p>All text licensed under the <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">Creative Commons Attribution-NonCommercial 4.0 International License</a></p> */}
-          <p>All text licensed under the <em>I'll Figure This Out If And When I Need To</em> license.</p>
+          {/* <p>All text licensed under the <em>I'll Figure This Out If And When I Need To</em> license.</p> */}
         </footer>
       </div>
     </Router>
