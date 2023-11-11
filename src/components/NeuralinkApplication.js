@@ -16,34 +16,31 @@ const NeuralinkApplication = () => {
 
     return (
       <div>
-        {/* <h1 className="page-title">Neuralink Internship Application</h1> */}
         <p><em>Below I directly respond to the listed qualifications for the Software Engineering Internship</em></p>
         <section>
           <h2 onClick={() => toggleSection('aboutYou')} className={`collapsible-header ${openSection.aboutYou ? 'active' : ''}`}>About you</h2>
           {openSection.aboutYou && (
           <ul>
             <li>
-              <strong>You find large challenges exciting and enjoy discovering and defining problems as much as solving them.</strong> 
-              <p>When I was 17 I told my parents in complete earnest that I was going to be one of the best poker players in the world one day. At the time online poker was incredibly new, and nobody thought you could make a living doing it. I found a small group of fellow enthusiasts from all corners of the globe congregating in an online forum, where we went on to explore and <Link to="/poker" className='internal-link'>conquer</Link> these uncharted waters.</p>
-              <p>
-                In 2019, despite having no significant programming experience beyond standard coursework and study, I assured a longtime colleague that two friends and I could build a better software product than the one he was using to run his business that executes $100 million per year in trades. Within a year <Link to="/betterdata" className='internal-link'>we did</Link> just that.
-              </p>
+              <strong>You find large challenges exciting and enjoy discovering and defining problems as much as solving them.</strong>
+              <ul>
+                <li>I figured out how to make a living playing online <Link to='/poker' className='internal-link'>poker</Link> when nobody thought it was possible. Discovering and defining the landscape was a huge and enjoyable part of that quest.</li>
+                <li>Despite having no significant prior experience, I convinced a colleague to hire two friends and I to develop a <Link to='/betterdata' className='internal-link'>software product</Link> for his trading company that executes $100 million per year in wagers. Within a year we had the top product in our niche.</li>
+              </ul>
             </li>
             <li>
               <strong>You deliver. You may enjoy thoughtful conversations about problems and perfecting designs, but in the end, you know that what matters is delivering a manufacturable solution that works every time.</strong> 
-              <p>I've found myself on both ends of the theory vs practice spectrum at various points in my life, but it has become abundantly clear to me that biasing towards delivering is necessary. A few examples:
                 <ul>
-                  <li>When starting <Link to="/betterdata" className='internal-link'>Better Data</Link>, each day that we could not traffic an exchange directly and explicitly translated to dollars lost out of our client's <Hoverable text="and, consequently, ours">pockets.</Hoverable>We had to get <em>something</em> up immediately. We did, and made the necessary rewrites when time permitted.</li>
-                  <li>This website! This is not the cleanest <a href="https://github.com/korykilpatrick/aichetype" target="_blank">code</a> or writing. The <Link to="/poker" className='internal-link'>poker video</Link> was unscripted and one take. I'm not trying to create a perfect website, I'm trying to take the path that leads to me working on interesting problems (at Neuralink! 🤞) as soon as possible.<Hoverable text="Funny aside - I briefly got snagged on the perfection bit with this f**king blue box you're currently reading. Web development is not my strength. Correctly positioning and sizing this damn box got the best of me one day, before I eventually reminded myself that it didn't need to be perfect and settled for a mediocre implementation."></Hoverable></li>
+                  <li>When starting <Link to="/betterdata" className='internal-link'>Better Data</Link>, each day that we could not traffic an exchange directly and explicitly translated to dollars lost out of our client's <Hoverable text="and, consequently, ours">pockets.</Hoverable> We had to get <em>something</em> up immediately. We did, and made the necessary rewrites when time permitted.</li>
                   <li>To survive in the gambling world you have to be extremely comfortable with moving forward in the face of uncertainty and with incomplete information. If you wait to have a perfect gameplan to get in a game there will be no openings left or the bad players will have already lost all their money.</li>
+                  <li>This website! This is not the cleanest <a href="https://github.com/korykilpatrick/aichetype" target="_blank">code</a> or writing. I'm not trying to create a perfect website, I'm trying to take the path that leads to me working on interesting problems (at Neuralink! 🤞) as soon as possible.<Hoverable text="Funny aside - I briefly got snagged on the perfection bit with this f**king blue box you're currently reading. Web development is not my strength. Correctly positioning and sizing this damn box got the best of me one day, before I eventually reminded myself that it didn't need to be perfect and settled for the hacky implementation of hardcoding the box width to 400px if the box content has <30 characters."></Hoverable></li>
                 </ul>
-              </p>
             </li>
             <li>
               <strong>You are a cross-disciplinary team member. You are excited to work with and learn from software, mechanical, electrical, materials, biological engineers, and neuroscientists. You are comfortable communicating across teams.</strong> 
               <ul>
-                <li>Excited is an understatement! See my <Link to="/bookshelf" className='internal-link'>bookshelf</Link> if you want a glimpse into the breadth of my interests.</li>
-                <li>I played team sports growing up, including college <Hoverable text="where I was captain of the team for two of my four years">basketball.</Hoverable> Working with a small team toward a shared goal is where I thrive.</li>
+                <li>Excited is an understatement! See my <Link to="/bookshelf" className='internal-link'>bookshelf</Link> for a glimpse into the breadth and depth of my interests.</li>
+                <li>I played team sports growing up, including college <Hoverable text="where I was captain of the team for two of my four years">basketball.</Hoverable> Working with a small team toward a shared goal is my happy place.</li>
               </ul>
             </li>
             <li>
@@ -62,7 +59,7 @@ const NeuralinkApplication = () => {
           <ul>
             <li>
               <strong>3+ years of software engineering experience (including personal/school experience)</strong> 
-              <p>6 years of experience. Completed <a href="https://www.galvanize.com/hack-reactor/" target="_blank">Hack Reactor</a> in 2017. Been addicted to the code since!</p>
+              <p>6 years of experience. Completed <a href="https://www.galvanize.com/hack-reactor/" target="_blank">Hack Reactor</a> in 2017. Been coding full-time since.</p>
             </li>
             <li>
               <strong>9+ months experience of application of technical skills outside of the classroom (examples: laboratory, research, extracurricular project teams, open source contributions, volunteering, personal projects or prior internship/work experience)</strong> 

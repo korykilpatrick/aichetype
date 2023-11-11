@@ -76,5 +76,11 @@
   100% { transform: rotate(360deg); }
 }
 
-
-  
+.transcript {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  font-style: italic;
+}

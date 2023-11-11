@@ -67,7 +67,7 @@ const DFSPost = () => {
             </ul>
         </Col>
       </Row>
-      <Image url="https://korykilpatrick-bucket.s3.us-west-1.amazonaws.com/dfs_lineups.png" caption="The main Google Sheet UI from a random week. The columns on the left are the proprietary metadata, with category names obscured because 🤫😉. The columns on the right are the engine-generated lineup candidates. My partners input <em>N*3</em> lineups into the google sheet, then we use the metadata to filter it down to the top <em>N</em> lineups to bet on." zoom={true} />
+      <Image url="https://korykilpatrick-bucket.s3.us-west-1.amazonaws.com/dfs_lineups.png" caption="The main Google Sheet UI. The columns on the left are the proprietary metadata, with category names obscured because 🤫😉. The columns on the right are the engine-generated lineup candidates. My partners input <em>N*3</em> lineups into the google sheet, then we use the metadata to filter it down to the top <em>N</em> lineups to bet on." zoom={true} />
       <Image url="https://korykilpatrick-bucket.s3.us-west-1.amazonaws.com/dfs_lookback.png" caption="An example post-contest analysis. By analyzing the publicly-available contest results we gleaned insights into how our opponents played and how our algorithms evaluated the winning lineups, which helped us iterate." zoom={true} />
       <Row className="mb-4">
         <Col>
