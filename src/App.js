@@ -22,7 +22,7 @@ const App = () => {
     <Router>
     <header>
       <Link to="/">
-        <img src="https://korykilpatrick-bucket.s3.us-west-1.amazonaws.com/numinousloop.png" alt="Home" className="home-button"/>
+        <img src="https://korykilpatrick-bucket.s3.us-west-1.amazonaws.com/dalle_bci.webp" alt="Home" className="home-button"/>
       </Link>
     </header>
       <div className="app-container">

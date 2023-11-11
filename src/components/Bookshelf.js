@@ -43,10 +43,10 @@ const Bookshelf = () => {
 
   return (
     <div className="bookshelf">
-      <p><em>This website was originally just going to be a digitial representation of my home library. I wanted to try using React to capture the essence of a library as opposed to a bland, soulless inventory of titles. I've left it here in case it's found of interest.</em></p>
+      {/* <p><em>This website was originally just going to be a digitial representation of my home library. I wanted to try using React to capture the essence of a library as opposed to a bland, soulless inventory of titles. I've left it here in case it's found of interest.</em></p> */}
         <p>Books have served as indispensable cornerstones in the blueprint of my existence. They've acted as wise guides and trusted companions. They've sent me on journeys across time and space and been the gravity keeping me tethered to Earth. Through their pages, I've established connections to a myriad of souls, both living and departed, helping me carve out my own niche in this intricate mosaic of life.</p>
 
-        <p>Starting in 2017, I began documenting the books that have crossed my path on <a href="https://www.goodreads.com/review/list/76731654-kory-kilpatrick" target="_blank">Goodreads</a>. I believe these works chose me as much as I chose them. Collectively, they weave a tapestry of my journey through this wild and wonderful world.
+        <p>In 2017 I began documenting the books that have crossed my path on <a href="https://www.goodreads.com/review/list/76731654-kory-kilpatrick" target="_blank">Goodreads</a>. I believe these works chose me as much as I chose them. Collectively, they weave a tapestry of my journey through this wild and wonderful world.
         </p>
       <FilterBar setFilteredBooks={setFilteredBooks} books={books} />
       <div className="bookshelf-container">
