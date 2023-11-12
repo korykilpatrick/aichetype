@@ -33,7 +33,7 @@ const NeuralinkApplication = () => {
                 <ul>
                   <li>When starting <Link to="/betterdata" className='internal-link'>Better Data</Link>, each day that we could not traffic an exchange directly translated to dollars lost out of our client's <Hoverable text="and, consequently, ours">pockets.</Hoverable> We had to get <em>something</em> up immediately. We did, and made the necessary rewrites when time permitted.</li>
                   <li>To succeed in gambling you have to be extremely comfortable acting in the face of uncertainty.</li>
-                  <li>This website! This is not the cleanest <a href="https://github.com/korykilpatrick/aichetype" target="_blank">code</a> or writing. I'm not trying to create a perfect website, I'm trying to take the path that leads to me working on interesting problems (at Neuralink! 🤞) as soon as possible.<Hoverable text="Funny aside - I briefly got snagged on the perfection bit with this f**king blue box you're currently reading. Web development is not my strength. Correctly positioning and sizing this damn box got the best of me one day, before I eventually reminded myself that it didn't need to be perfect and settled for the hacky implementation of hardcoding the box width if the box content has <30 characters."></Hoverable></li>
+                  <li>This website! This is not the cleanest <a href="https://github.com/korykilpatrick/aichetype" target="_blank">code</a> or writing. I'm not trying to create a perfect website, I'm trying to take the path that leads to me working on interesting problems (at Neuralink! 🤞) as soon as possible.<Hoverable text="I could talk about the work I've done and improve this site ad nauseum, but I'm hoping I've shown enough to get an interview!"></Hoverable></li>
                 </ul>
             </li>
             <li>
@@ -83,12 +83,12 @@ const NeuralinkApplication = () => {
               <ul>
                 <li>Python was a huge part of the company I <Link to="/betterdata" className='internal-link'>built</Link></li>
                 <li><Link to="/sportsanalytics" className='internal-link'>Sports analytics</Link> work I've done has been largely in Python</li>
-                <li>Backend of <a href="https://github.com/korykilpatrick/aichetype" target='_blank'>this site</a> is Python</li>
+                <li>Backend of <a href="https://github.com/korykilpatrick/aichetype" target='_blank'>this site</a> is Python (see <Link to='/devlog' className='internal-link'>DevLog</Link>)</li>
                 <li>A friend and I built an online version of Jeopardy to play over Zoom during the pandemic. I wrote the <a href="https://github.com/korykilpatrick/j-data" target="_blank">backend</a> in Python.</li>
               </ul>
               <p>Fluent in Javascript for 5 years</p>
               <ul>
-                <li>Frontend of <a href="https://github.com/korykilpatrick/aichetype" target='_blank'>this site</a> is Javascript/React</li>
+                <li>Frontend of <a href="https://github.com/korykilpatrick/aichetype" target='_blank'>this site</a> is Javascript/React (see <Link to='/devlog' className='internal-link'>DevLog</Link>)</li>
                 <li>Completed a Javascript-based coding bootcamp in 2017</li>
                 <li>Several Javascript projects on my <a href="https://github.com/korykilpatrick" target="_blank">github</a></li>
               </ul>

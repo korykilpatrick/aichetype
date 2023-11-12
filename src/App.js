@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import HomePage from './components/HomePage';
 import Neuralink from './components/Neuralink';
 import About from './components/About';
+import DevLog from './components/DevLog';
 import Projects from './components/Projects';
 import ProjectDetail from './components/ProjectDetails';
 import ContactInfo from './components/ContactInfo';
@@ -22,7 +23,7 @@ const App = () => {
     <Router>
     <header>
       <Link to="/">
-        <img src="https://korykilpatrick-bucket.s3.us-west-1.amazonaws.com/dalle_bci.webp" alt="Home" className="home-button"/>
+        <img src="https://korykilpatrick-bucket.s3.us-west-1.amazonaws.com/bci_art.webp" alt="Home" className="home-button"/>
       </Link>
     </header>
       <div className="app-container">
@@ -43,6 +44,7 @@ const App = () => {
             {/* <Route path="/links" element={<Projects />} /> */}
             <Route path="/bookshelf" element={<Bookshelf />} />
             <Route path="/about" element={<About />} />
+            <Route path="/devlog" element={<DevLog />} />
           </Routes>
         </Suspense>
         {/* <ContactInfo /> */}

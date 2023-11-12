@@ -16,6 +16,26 @@
     border-bottom: 1px solid #eee; /* Optional: a line under the title to separate it from the content */
   }
 
+  .post-subtitle {
+    font-size: 1.5rem; /* Slightly smaller than the title */
+    margin-top: 0.5rem; /* Less space above the subtitle */
+    margin-bottom: 0.5rem; /* Less space below the subtitle */
+    text-align: center; /* Keep it aligned with the title */
+    font-weight: normal; /* Less bold than the title to create a hierarchy */
+    color: #555; /* Slightly lighter color than the title */
+    line-height: 1.3; /* Comfortable line height for reading */
+    letter-spacing: 0px; /* Neutral letter spacing */
+    word-spacing: normal; /* Standard word spacing */
+    font-family: 'Georgia', serif; /* Consistent with the title for uniformity */
+    max-width: 700px; /* Slightly narrower than the title for visual hierarchy */
+    margin-left: auto; /* Maintain horizontal centering */
+    margin-right: auto;
+    padding-bottom: 10px; /* Less padding than the title */
+    /* Optional: a subtle text shadow can add depth, but use it cautiously */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+
   .internal-link, .internal-link:visited {
     color: #708090;
     text-decoration: none;
