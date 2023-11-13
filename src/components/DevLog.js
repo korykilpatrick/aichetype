@@ -21,7 +21,7 @@ const DevLog = () => {
                 My first commit on this project is from March 18th of this year. It was originally going to be a blog/personal site, but it quickly got cast into the Well of Projects Unfinished. In September I had the idea to leverage the power of React to build a digital library that felt more library-like than the soul-less list of titles I commonly see, which led to my online <Link to='bookshelf' className='internal-link'>bookshelf</Link>.
             </p>
             <p>
-                Then I had the idea to use the OpenAI API to try to build a pipeline in which I could turn a voice memo into a blog post. I struggle to write about myself, but talking is much easier for me. I got that operational, but I couldn't get the GPT4 output to sound like me. 
+                Then I had the idea to use the OpenAI API to try to build a pipeline in which I could turn a voice memo into a blog post. I struggle to write about myself, but talking is much easier for me. I got that operational, but I couldn't easily get the GPT4 output to sound like me. 
             </p>
             <p>
                 Then in late October I saw the software engineering internship role on the Neuralink site, and knew that I needed to turn this wandering project into part of my application. Since I'm open-sourcing this code, I thought I'd at least touch on these lingering Ghosts of Ideas Past, and talk a little about implementation decisions.

@@ -50,7 +50,7 @@ const ResumePost = () => {
                 <ul className='poker'>
                   <li>World Series of Poker winner</li>
                   <li>Long-term winner in high stakes online cash games</li>
-                  <li>Earned enough money to retire by mid-20s<Hoverable text="it makes me cringe a bit to put this bullet on here, but profit is the only real measuring stick of performance in poker"></Hoverable></li>
+                  <li>Earned enough money to retire by mid-20s<Hoverable text="this bullet makes me cring, but profit is the only real measuring stick of performance in poker"></Hoverable></li>
                   <li>Extensive cross-disciplinary studies in game theory, logic, psychology, statistics, financial management and analysis, emotional regulation</li>
                   <li>Coached multiple players that achieved $5m+ in winnings while my students</li>
                 </ul>

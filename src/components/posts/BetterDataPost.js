@@ -14,16 +14,16 @@ const BetterDataPost = () => {
       <Row className="mb-4">
         <Col>
           <p>
-            In late 2019 two friends and I began working on building software for a colleague of mine who runs a business in a niche high-frequency trading space. It started with us merely tinkering, trying to see if we <em>could</em> build something better than what he was currently using. A year later we had a highly regarded, high-end product and a handful of high paying customers. 
+            In 2019 two friends and I began building software for a colleague of mine who runs a business in a niche high-frequency trading space. It started with us merely tinkering, trying to see if we <em>could</em> build something better than what he was currently using. A year later we had a highly regarded, high-end<Hoverable text="we are the most expensive product on the market, charging ~5x what some competitors do"></Hoverable> product and a handful of high paying customers. 
           </p>
           <p>
-            I worked on this company for over 2 years alongside two friends, taking it from a blank document to a profitable business. I was the point person for all business related things as well as client-acquisition and relationships. My partners and I split the engineering work, each having our fingerprints over pretty much every aspect of the codebase.
+            I worked on this company for over 2 years alongside two friends, taking it from a blank document to a profitable business.<Hoverable text="As an aside, the intent was never to form a business - it was to find a big project to develop our engineering skills. Forming an LLC and profitable business was incidental."></ Hoverable> I was the point person for all business related things as well as managing client relationships. My partners and I split the engineering work, each having our fingerprints over pretty much every aspect of the codebase.
           </p>
         </Col>
       </Row>
       <Row>
         <Col>
-          <Image url="https://korykilpatrick-bucket.s3.us-west-1.amazonaws.com/BetterData_Web.png" caption="Scenes from the website. It's hard to showcase a product that is dense with sensitive information!" zoom={true}></Image>
+          <Image url="https://korykilpatrick-bucket.s3.us-west-1.amazonaws.com/BetterData_Web.png" caption="Scenes from our web interface. It's hard to showcase a product that is dense with sensitive information!" zoom={true}></Image>
         </Col>
       </Row>
       <Row className="mb-4">
@@ -84,7 +84,7 @@ const BetterDataPost = () => {
           <h3>Results 📈</h3>
           <ul>
             <li>Hit all our targets</li>
-            <li>$1 billion in wagers executed at an average wager of $X</li>
+            <li>1.5 million wagers programmatically executed for total of ~$1 billion in first 3 years</li>
             <li>Achieved near complete automation<Hoverable text="It still irks me that we couldn't <em>fully</em> automate the software, but it often has to respond to unpredictably structured data while also being completely fault-intolerant so some human oversight is required. <em>sigh</em>. We did build some great tooling that makes maintenance as simple as possible though."></Hoverable></li>
             <li>Mid 6 figures in annual recurring revenue</li>
           </ul>
