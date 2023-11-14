@@ -30,9 +30,9 @@ const ResumePost = () => {
               <Card.Title className="mb-2 text-muted">🤖 <Link to="/betterdata">Co-Founder/CEO Better Data Solutions & Management </ Link> <span className="work-dates">Oct 2019 - Dec 2021</span></Card.Title>
               <Card.Text>
                 <ul>
-                  <li>Built a B2B SaaS company that provides end-to-end services for clients in a niche high-frequency trading market.</li>
-                  <li>Led all aspects of developing a new business.</li>
-                  <li>Worked on every facet of a full-stack software product responsible for nearly $1B in trades in its first 2.5 years.</li>
+                  <li>Built a B2B SaaS company that provides end-to-end services for clients in a niche high-frequency trading market</li>
+                  <li>Led all aspects of developing a new business</li>
+                  <li>Worked on every facet of a full-stack software product responsible for $1 billion in trades in its first 3 years</li>
                   <li>Python, MySQL, AWS, Bash</li>
                 </ul>
               </Card.Text>
@@ -50,7 +50,7 @@ const ResumePost = () => {
                 <ul className='poker'>
                   <li>World Series of Poker winner</li>
                   <li>Long-term winner in high stakes online cash games</li>
-                  <li>Earned enough money to retire by mid-20s<Hoverable text="this bullet makes me cring, but profit is the only real measuring stick of performance in poker"></Hoverable></li>
+                  <li>Earned enough money to retire by mid-20s<Hoverable text="this bullet makes me cringe, but profit is the only real measuring stick of performance in poker"></Hoverable></li>
                   <li>Extensive cross-disciplinary studies in game theory, logic, psychology, statistics, financial management and analysis, emotional regulation</li>
                   <li>Coached multiple players that achieved $5m+ in winnings while my students</li>
                 </ul>

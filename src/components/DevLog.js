@@ -120,7 +120,8 @@ const DevLog = () => {
                 {openSection.techDebt && (
                 <div>
                     <ul>
-                        <li><em>src/components</em> needs to be better organized</li>
+                        <li><em>src/components</em> needs to be better re-organized to better reflect hierarchical relationships </li>
+                        <li><em>src/css</em> isn't as modular as it could be</li>
                         <li>Config and environment variables could be handled better</li>
                         <li>A number of files have comments and print statements that should be replaced with tests</li>
                         <li>When the blue box has between ~10 and 30 characters<Hoverable text="like this damnit"></Hoverable> it displays awkwardly. This is because I almost drove myself mad trying to figure out how to both display the box in the correct place and have it be the correct width and height, before eventually capitulating and realizing I have better things to work on.</li>
