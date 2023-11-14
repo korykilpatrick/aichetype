@@ -28,3 +28,9 @@
 .navbar a:hover {
   color: #007bff;
 }
+
+@media (max-width: 600px) {
+  .navbar ul {
+    font-size: 3vw; /* Minimum font size */
+  }
+}

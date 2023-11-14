@@ -82,12 +82,18 @@ body {
 }
 
 .home-button {
-  height: 100px; /* Adjust the height as needed */
-  width: auto;  /* This will maintain the aspect ratio of your image */
+  height: 100px;
+  width: auto;
   display: block;
-  margin: 0; /* Removes any default margin */
-  position: fixed; /* Positions the element in an absolute manner relative to its closest positioned ancestor */
-  top: 0; /* Aligns the top edge of the element with the top of the container */
-  left: 0; /* Aligns the left edge of the element with the left of the container */
-  padding: 10px; /* Adds some space around the icon */
+  margin: 0;
+  position: fixed;
+  top: 0; 
+  left: 0;
+  padding: 10px;
+}
+
+@media (max-width: 1000px) {
+  .home-button {
+    display: none; /* Hides the button on small screens */
+  }
 }
