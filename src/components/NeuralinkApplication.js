@@ -24,7 +24,7 @@ const NeuralinkApplication = () => {
             <li>
               <strong>You find large challenges exciting and enjoy discovering and defining problems as much as solving them.</strong>
               <ul>
-                <li>I figured out how to make a living playing online <Link to='/poker' className='internal-link'>poker</Link> before anyone knew it was possible. Discovering and defining the problem space was a huge<Hoverable text="and enjoyable!"></Hoverable> part of that quest.</li>
+                <li>I figured out how to make a living playing online <Link to='/poker' className='internal-link'>poker</Link> before anyone knew it was possible. Discovering and defining the problem space<Hoverable text="which mainly consisted of bringing the game from the Wild West into the data science era"></Hoverable> was a huge<Hoverable text="and enjoyable!"></Hoverable> part of that quest.</li>
                 <li>In 2019, despite having no significant programming experience outside of mostly self-taught coursework, two friends and I to built an end-to-end high-frequency trading <Link to='/betterdata' className='internal-link'>product</Link> that programmatically executes 9 figures per year in wagers. Within a year we had the top product in our niche.</li>
               </ul>
             </li>
