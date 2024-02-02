@@ -1,0 +1,36 @@
+.video-wrapper {
+    /* This wrapper handles the scaling of the video */
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    /* Height is controlled by padding-top for aspect ratio */
+}
+
+.video-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.caption {
+    text-align: center;
+    margin-top: 10px; /* Adjust as needed */
+}
+
+
+/* Responsive design: Adjusts video size for smaller screens */
+@media screen and (max-width: 800px) {
+    .video-container {
+        width: 100%; /* Full width on smaller screens */
+        margin: 10px 0; /* Reduced margin on smaller screens */
+    }
+
+    .video-frame {
+        height: auto; /* Adjusts height automatically for aspect ratio */
+    }
+}

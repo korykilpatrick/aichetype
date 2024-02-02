@@ -46,6 +46,12 @@
       "component": "BetterDataPost",
       "endpoint": "betterdata",
       "tags": ["work", "career"]
+    },
+    {
+      "name": "LikeWater",
+      "component": "LikeWaterPost",
+      "endpoint": "likewater",
+      "tags": ["life", "storytelling", "philosophy"]
     }
 ]
   

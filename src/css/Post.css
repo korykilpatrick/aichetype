@@ -104,3 +104,10 @@
   margin-right: auto;
   font-style: italic;
 }
+
+.caption {
+  margin-top: 10px;
+  font-size: 12px;
+  color: gray;
+  text-align: center;
+}

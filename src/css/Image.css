@@ -24,11 +24,3 @@
     cursor: zoom-in;
     transform: scale(2);
   }
-  
-  .caption {
-    margin-top: 10px;
-    font-size: 12px;
-    color: gray;
-    text-align: center;
-  }
-  
